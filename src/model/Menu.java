@@ -1,15 +1,24 @@
 package model;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
 public class Menu extends AbstractModel{
+	
+	private int menuItem;
+	
+	public Menu()
+	{
+		this.menuItem = 0;
+	}
 
 	@Override
 	public void draw(Graphics2D g2) {
 		g2.setColor(Color.WHITE);
-		g2.drawString("Menu", 10, 10);
+		g2.setFont(new Font("Arial", Font.BOLD, 50));
+		g2.drawString("Pong Extreme", 10, 50);
 	}
 
 	@Override
@@ -26,8 +35,13 @@ public class Menu extends AbstractModel{
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
+		switch(e.getKeyCode())
+		{
+		case KeyEvent.VK_UP:
+			menuItem++;
+		case KeyEvent.VK_DOWN:
+			menuItem--;
+		}
 	}
 
 	@Override
