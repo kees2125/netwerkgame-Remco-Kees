@@ -3,13 +3,13 @@ import java.awt.Shape;
 import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
 
-public class Player {
+public class player {
 private int score;
 private int playerNmr;
 private Shape playerShape;
 
 
-	public Player(int Nmr)
+	public player(int Nmr)
 	{
 		score = 0;
 		playerNmr = Nmr;
