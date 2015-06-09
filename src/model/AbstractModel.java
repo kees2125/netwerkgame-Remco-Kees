@@ -7,7 +7,7 @@ public abstract class AbstractModel {
 	
 	public abstract void draw(Graphics2D g2);
 	public abstract void update();
-	public abstract void init();
+	public abstract void init(int player, int players);
 	public abstract void keyPressed(KeyEvent e);
 	public abstract void keyReleased(KeyEvent e);
 

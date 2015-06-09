@@ -35,6 +35,7 @@ public class GamePanel extends JPanel implements ActionListener
 		setPreferredSize(new Dimension(600,600));
 		models.add(new Menu(frame));
 		models.add(new Game());
+		models.get(1).init(1,4);
 		this.timer = new Timer(1000/120, this);
 		timer.start();
 		this.abstractModel = 0; //set model

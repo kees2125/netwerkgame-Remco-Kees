@@ -74,7 +74,7 @@ public class Menu extends AbstractModel{
 	}
 
 	@Override
-	public void init() {
+	public void init(int x, int y) {
 		// TODO Auto-generated method stub
 		
 	}

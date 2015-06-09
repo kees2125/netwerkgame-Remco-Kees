@@ -21,14 +21,20 @@ public class Ball {
 		if(colision ==1)
 		{
 			xVelosity = -xVelosity;
+			xVelosity += 2 * Math.random();
+			yVelosity += 2 * Math.random();
 		}
 		else if(colision == 2){
 			yVelosity = -yVelosity;
+			xVelosity += 2 * Math.random();
+			yVelosity += 2 * Math.random();
 		}
 		else if(colision == 3 )
 		{
 			xVelosity = -xVelosity;
 			yVelosity = -yVelosity;
+			xVelosity += 2 * Math.random();
+			yVelosity += 2 * Math.random();
 		}
 		Moveball(xVelosity,yVelosity);
 		

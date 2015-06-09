@@ -1,5 +1,7 @@
 package control;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.geom.Area;
 import java.awt.geom.Ellipse2D;
@@ -14,10 +16,13 @@ public class GameManager {
 	
 	public ArrayList<Player> players = new ArrayList<Player>();
 	public Ball ball = new Ball(300,300,20);
-	public ArrayList<Shape> bounderys = new ArrayList<Shape>();
-	public GameManager()
+	
+	public GameManager(int player)
 	{
-		
+		for(int i =0; i< player; player++)
+		{
+			players.add(new Player(i+1));
+		}
 		
 		
 	}
@@ -40,6 +45,7 @@ public class GameManager {
 			{
 				temp += 2;
 			}
+			
 		}
 		for(Player p: players)
 		{
@@ -56,7 +62,59 @@ public class GameManager {
 				break;
 			}
 		}
-		ball.update(temp);
+		
+		if(ball.getShape().getBounds2D().getX() <0)
+		{
+			players.get(0).addScore(1);
+			ball = new Ball(300,300,20);
+		}
+		else if(ball.getShape().getBounds2D().getX() >600)
+		{
+			players.get(1).addScore(1);
+			ball = new Ball(300,300,20);
+		}
+		else if(players.size()>2)
+		{
+			if(ball.getShape().getBounds2D().getY() > 600 + ball.getShape().getBounds2D().getHeight())
+			{
+				players.get(2).addScore(1);
+				ball = new Ball(300,300,20);
+			}
+			else if(players.size()>3 && ball.getShape().getBounds2D().getY() <0 )
+			{
+				players.get(3).addScore(1);
+				ball = new Ball(300,300,20);
+			}
+		}
+		else
+		{
+			ball.update(temp);
+		}
+		
+		
+	}
+	
+	public void draw(Graphics2D g2)
+	{
+		g2.setColor(Color.WHITE);
+		for(Player p: players)
+		{
+			g2.fill(p.getPlayerShape());
+			g2.drawString("Player"+p.getPlayerNmr() +": "+p.getScore(), 50, 50*p.getPlayerNmr());
+		}
+		g2.fill(ball.getShape());
+		//g2.setColor(Color.green);
+		
+	}
+	
+	public Player getPlayer(int player)
+	{
+		if(player>0 && player <= players.size())
+		{
+			return players.get(player-1);
+		}
+		
+		return null;
 	}
 	
 

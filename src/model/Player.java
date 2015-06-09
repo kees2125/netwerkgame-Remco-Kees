@@ -42,6 +42,11 @@ private Shape playerShape;
 		this.score = score;
 	}
 	
+	public void addScore(int score)
+	{
+		this.score += score;
+	}
+	
 	
 	public Shape getPlayerShape() {
 		return playerShape;
