@@ -24,7 +24,7 @@ public class Window {
 		JFrame frame = new JFrame("pong");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JPanel panel = new GamePanel();
+		JPanel panel = new GamePanel(frame);
 		panel.setBackground(Color.black);
 		frame.getContentPane().add(panel);
 		frame.pack();

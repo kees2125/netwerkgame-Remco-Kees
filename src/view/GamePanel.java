@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -21,23 +22,28 @@ public class GamePanel extends JPanel implements ActionListener
 	/**
 	 * 
 	 */
+	private JFrame frame;
 	private static final long serialVersionUID = 1L;
     //private ArrayList<Shape> players = new ArrayList<Shape>();
 	private ArrayList<AbstractModel> models = new ArrayList<>();
 	private Timer timer;
 	private int abstractModel;
+	private KeyBoardHandler keyHandler;
 	
 	/* Constructor */
-	public GamePanel()
+	public GamePanel(JFrame frame)
 	{
 		setPreferredSize(new Dimension(600,600));
 		//this.players = players;
-		models.add(new Menu());
+		models.add(new Menu(frame));
 		models.add(new Game());
 		this.timer = new Timer(1000/120, this);
 		timer.start();
 		this.abstractModel = 0; //set model
-		addKeyListener(new KeyBoardHandler(this));
+		this.keyHandler = new KeyBoardHandler(this);
+		addKeyListener(keyHandler);
+		this.setFocusable(true);
+		this.requestFocusInWindow();
 	}
 	public void paintComponent(Graphics g)
 	{
@@ -58,5 +64,10 @@ public class GamePanel extends JPanel implements ActionListener
 		// TODO Auto-generated method stub
 		repaint();
 		models.get(abstractModel).update();
+	}
+	
+	public AbstractModel getState()
+	{
+		return models.get(abstractModel);
 	}
 }
