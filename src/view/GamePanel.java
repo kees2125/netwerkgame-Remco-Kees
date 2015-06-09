@@ -24,6 +24,7 @@ public class GamePanel extends JPanel implements ActionListener
 	 */
 	private JFrame frame;
 	private static final long serialVersionUID = 1L;
+    //private ArrayList<Shape> players = new ArrayList<Shape>();
 	private ArrayList<AbstractModel> models = new ArrayList<>();
 	private Timer timer;
 	private int abstractModel;
@@ -33,6 +34,7 @@ public class GamePanel extends JPanel implements ActionListener
 	public GamePanel(JFrame frame)
 	{
 		setPreferredSize(new Dimension(600,600));
+		//this.players = players;
 		models.add(new Menu(frame));
 		models.add(new Game());
 		this.timer = new Timer(1000/120, this);
@@ -48,10 +50,18 @@ public class GamePanel extends JPanel implements ActionListener
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D)g;
 		models.get(abstractModel).draw(g2);
+//		g2.setColor(Color.white);
+//		for(Shape S: players)
+//		{
+//			g2.fill(S);
+//		}
+		
+		// Draw body 1 en body 2
 		
 	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
 		repaint();
 		models.get(abstractModel).update();
 	}
