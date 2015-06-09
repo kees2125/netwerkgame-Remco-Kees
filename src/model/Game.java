@@ -22,7 +22,6 @@ public class Game extends AbstractModel{
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
 		gm.Update();
 		if(left)
 			gm.getPlayer(playerNmr).move(-speed);
@@ -53,7 +52,6 @@ public class Game extends AbstractModel{
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
 		left = false;
 		right = false;
 	}

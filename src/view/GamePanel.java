@@ -38,7 +38,7 @@ public class GamePanel extends JPanel implements ActionListener
 		models.get(1).init(1,2);
 		this.timer = new Timer(1000/120, this);
 		timer.start();
-		this.abstractModel = 1; //set model
+		this.abstractModel = 0; //set model
 		this.keyHandler = new KeyBoardHandler(this);
 		addKeyListener(keyHandler);
 		this.setFocusable(true);

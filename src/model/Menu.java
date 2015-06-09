@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 
 public class Menu extends AbstractModel{
 	
-	private int menuItem;
+	private int menuItem, window;
 	private JFrame frame;
 	private JoinGame join;
 	private StartGame start;
@@ -18,59 +18,84 @@ public class Menu extends AbstractModel{
 	public Menu(JFrame frame)
 	{
 		this.menuItem = 1;
+		this.window = 0;
 		this.frame = frame;
-		this.join = new JoinGame();
-		this.start = new StartGame();
+		this.join = new JoinGame(this);
+		this.start = new StartGame(this);
 	}
 
 	@Override
 	public void draw(Graphics2D g2) {
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		g2.setColor(Color.WHITE);
-		g2.setFont(new Font("Impact", Font.BOLD+Font.ITALIC, 96));
-		g2.drawString("Pong Extreme", 0, 90);
-		if(menuItem == 1)
+		switch(window)
 		{
-			g2.setColor(Color.GRAY);
-		}
-		else
-		{
+		case 0:
 			g2.setColor(Color.WHITE);
+			g2.setFont(new Font("Impact", Font.BOLD+Font.ITALIC, 96));
+			g2.drawString("Pong Extreme", 0, 90);
+			if(menuItem == 1)
+			{
+				g2.setColor(Color.GRAY);
+			}
+			else
+			{
+				g2.setColor(Color.WHITE);
+			}
+			g2.drawString("Create Game", frame.getWidth()/2-300, 250);
+			if(menuItem == 2)
+			{
+				g2.setColor(Color.GRAY);
+			}
+			else
+			{
+				g2.setColor(Color.WHITE);
+			}
+			g2.drawString("Join Game", frame.getWidth()/2-250, 350);
+			if(menuItem == 3)
+			{
+				g2.setColor(Color.GRAY);
+			}
+			else
+			{
+				g2.setColor(Color.WHITE);
+			}
+			g2.drawString("HighScores", frame.getWidth()/2-280, 450);
+			if(menuItem == 4)
+			{
+				g2.setColor(Color.GRAY);
+			}
+			else
+			{
+				g2.setColor(Color.WHITE);
+			}
+			g2.drawString("Exit", frame.getWidth()/2-100, 550);
+			break;
+		case 1:
+			start.draw(g2);
+			break;
+		case 2:
+			join.draw(g2);
+			break;
 		}
-		g2.drawString("Create Game", frame.getWidth()/2-300, 250);
-		if(menuItem == 2)
-		{
-			g2.setColor(Color.GRAY);
-		}
-		else
-		{
-			g2.setColor(Color.WHITE);
-		}
-		g2.drawString("Join Game", frame.getWidth()/2-250, 350);
-		if(menuItem == 3)
-		{
-			g2.setColor(Color.GRAY);
-		}
-		else
-		{
-			g2.setColor(Color.WHITE);
-		}
-		g2.drawString("HighScores", frame.getWidth()/2-280, 450);
-		if(menuItem == 4)
-		{
-			g2.setColor(Color.GRAY);
-		}
-		else
-		{
-			g2.setColor(Color.WHITE);
-		}
-		g2.drawString("Exit", frame.getWidth()/2-100, 550);
+		
 	}
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		
+		switch(window)
+		{
+		case 1:
+			start.update();
+			break;
+		case 2:
+			join.update();
+			break;
+		}
+	}
+	
+	public void switchState(int window)
+	{
+		this.window = window;
 	}
 
 	@Override
@@ -81,40 +106,60 @@ public class Menu extends AbstractModel{
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		switch(e.getKeyCode())
+		switch(window)
 		{
-		case KeyEvent.VK_UP:
-			if(menuItem > 1)
+		case 0:
+			switch(e.getKeyCode())
 			{
-				menuItem--;
-			}
-			break;
-		case KeyEvent.VK_DOWN:
-			if(menuItem < 4)
+			case KeyEvent.VK_UP:
+				if(menuItem > 1)
+				{
+					menuItem--;
+				}
+				break;
+			case KeyEvent.VK_DOWN:
+				if(menuItem < 4)
+				{
+					menuItem++;
+				}
+				break;
+			case KeyEvent.VK_ENTER:
+			switch(menuItem)
 			{
-				menuItem++;
+			case 1:
+				start.init(0, 0);
+				window = 1;
+				break;
+			case 2:
+				join.init(0, 0);
+				window = 2;
+				break;
+			case 3:
+				break;
+			case 4:
+				frame.dispose();
+				break;
 			}
-			break;
-		case KeyEvent.VK_ENTER:
-		switch(menuItem)
-		{
+			}
 		case 1:
+			start.keyPressed(e);
 			break;
 		case 2:
+			join.keyPressed(e);
 			break;
-		case 3:
-			break;
-		case 4:
-			frame.dispose();
-			break;
-		}
-		}
+		}	
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
+		switch(window)
+		{
+		case 1:
+			start.keyReleased(e);
+			break;
+		case 2:
+			join.keyReleased(e);
+			break;
+		}
 	}
-
 }
