@@ -5,13 +5,15 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
+import control.StateController;
+
 public class StartGame extends AbstractModel{
 	
-	private Menu menu;
+	private StateController controller;
 
-	public StartGame(Menu menu)
+	public StartGame(StateController controller)
 	{
-		this.menu = menu;
+		this.controller = controller;
 	}
 
 	@Override
@@ -45,7 +47,10 @@ public class StartGame extends AbstractModel{
 		switch(e.getKeyCode())
 		{
 		case KeyEvent.VK_ESCAPE:
-			menu.switchState(0);
+			controller.switchState(0);
+			break;
+		case KeyEvent.VK_ENTER:
+			controller.switchState(1);
 			break;
 		}
 	}

@@ -5,13 +5,15 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
+import control.StateController;
+
 public class JoinGame extends AbstractModel{
 	
-	private Menu menu;
+	private StateController controller;
 
-	public JoinGame(Menu menu)
+	public JoinGame(StateController controller)
 	{
-		this.menu = menu;
+		this.controller = controller;
 	}
 
 	@Override
@@ -45,9 +47,8 @@ public class JoinGame extends AbstractModel{
 		switch(e.getKeyCode())
 		{
 		case KeyEvent.VK_ESCAPE:
-			menu.switchState(0);
+			controller.switchState(0);
 			break;
 		}
 	}
-
 }

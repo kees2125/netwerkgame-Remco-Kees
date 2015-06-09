@@ -8,20 +8,24 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
 
+import control.StateController;
+
 public class Menu extends AbstractModel{
 	
 	private int menuItem, window;
 	private JFrame frame;
 	private JoinGame join;
 	private StartGame start;
+	private StateController controller;
 	
-	public Menu(JFrame frame)
+	public Menu(JFrame frame, StateController controller)
 	{
+		this.controller = controller;
 		this.menuItem = 1;
 		this.window = 0;
 		this.frame = frame;
-		this.join = new JoinGame(this);
-		this.start = new StartGame(this);
+		this.join = new JoinGame(controller);
+		this.start = new StartGame(controller);
 	}
 
 	@Override
@@ -123,23 +127,6 @@ public class Menu extends AbstractModel{
 					menuItem++;
 				}
 				break;
-			case KeyEvent.VK_ENTER:
-			switch(menuItem)
-			{
-			case 1:
-				start.init(0, 0);
-				window = 1;
-				break;
-			case 2:
-				join.init(0, 0);
-				window = 2;
-				break;
-			case 3:
-				break;
-			case 4:
-				frame.dispose();
-				break;
-			}
 			}
 		case 1:
 			start.keyPressed(e);
@@ -154,6 +141,29 @@ public class Menu extends AbstractModel{
 	public void keyReleased(KeyEvent e) {
 		switch(window)
 		{
+		case 0:
+			switch(e.getKeyCode())
+			{
+			case KeyEvent.VK_ENTER:
+				switch(menuItem)
+				{
+				case 1:
+					start.init(0, 0);
+					window = 1;
+					break;
+				case 2:
+					join.init(0, 0);
+					window = 2;
+					break;
+				case 3:
+					break;
+				case 4:
+					frame.dispose();
+					break;
+				}
+				break;
+			}
+			break;
 		case 1:
 			start.keyReleased(e);
 			break;
