@@ -3,13 +3,13 @@ import java.awt.Shape;
 import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
 
-public class Playerasdfasdf {
+public class Player {
 private int score;
 private int playerNmr;
 private Shape playerShape;
 
 
-	public Playerasdfasdf(int Nmr)
+	public Player(int Nmr)
 	{
 		score = 0;
 		playerNmr = Nmr;

@@ -7,12 +7,12 @@ import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 
 import model.Ball;
-import model.Playerasdfasdf;
+import model.Player;
 
 public class GameManager {
 
 	
-	public ArrayList<Playerasdfasdf> players = new ArrayList<Playerasdfasdf>();
+	public ArrayList<Player> players = new ArrayList<Player>();
 	public Ball ball = new Ball(300,300,20);
 	public ArrayList<Shape> bounderys = new ArrayList<Shape>();
 	public GameManager()
@@ -41,7 +41,7 @@ public class GameManager {
 				temp += 2;
 			}
 		}
-		for(Playerasdfasdf p: players)
+		for(Player p: players)
 		{
 			if(p.testIntersection(tempArea))
 			{

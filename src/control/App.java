@@ -1,6 +1,6 @@
 package control;
 
-import model.Playerasdfasdf;
+import model.Player;
 import view.Window;
 
 public class App {
