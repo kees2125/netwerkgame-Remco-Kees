@@ -19,7 +19,7 @@ public class GameManager {
 	
 	public GameManager(int player)
 	{
-		for(int i =0; i< player; player++)
+		for(int i =0; i< player; i++)
 		{
 			players.add(new Player(i+1));
 		}
@@ -33,7 +33,7 @@ public class GameManager {
 		Area tempArea = new Area(ball.getShape());
 		if(players.size()  == 2)
 		{
-			if(ball.getShape().getBounds2D().getY() <0 || ball.getShape().getBounds2D().getY() > 600 + ball.getShape().getBounds2D().getHeight())
+			if(ball.getShape().getBounds2D().getY() <0 || ball.getShape().getBounds2D().getY() + ball.getShape().getBounds2D().getHeight() > 600 )
 			{
 				temp += 2;
 			}
@@ -63,7 +63,7 @@ public class GameManager {
 			}
 		}
 		
-		if(ball.getShape().getBounds2D().getX() <0)
+		if(ball.getShape().getBounds2D().getX() <-30)
 		{
 			players.get(0).addScore(1);
 			ball = new Ball(300,300,20);
@@ -80,16 +80,14 @@ public class GameManager {
 				players.get(2).addScore(1);
 				ball = new Ball(300,300,20);
 			}
-			else if(players.size()>3 && ball.getShape().getBounds2D().getY() <0 )
+			else if(players.size()>3 && ball.getShape().getBounds2D().getY() <-30 )
 			{
 				players.get(3).addScore(1);
 				ball = new Ball(300,300,20);
 			}
 		}
-		else
-		{
 			ball.update(temp);
-		}
+		
 		
 		
 	}

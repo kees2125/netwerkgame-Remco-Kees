@@ -21,7 +21,7 @@ public class KeyBoardHandler implements KeyListener{
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		
+		window.getState().keyReleased(e);
 	}
 
 	@Override

@@ -9,7 +9,9 @@ import control.GameManager;
 
 public class Game extends AbstractModel{
 	private GameManager gm;
+	private int speed = 5;
 	private int playerNmr;
+	boolean right,left;
 	@Override
 	public void draw(Graphics2D g2) {
 		g2.setColor(Color.WHITE);
@@ -22,6 +24,10 @@ public class Game extends AbstractModel{
 	public void update() {
 		// TODO Auto-generated method stub
 		gm.Update();
+		if(left)
+			gm.getPlayer(playerNmr).move(-speed);
+		if(right)
+			gm.getPlayer(playerNmr).move(speed);
 	}
 
 	@Override
@@ -36,11 +42,11 @@ public class Game extends AbstractModel{
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_A)
 		{
-			gm.getPlayer(playerNmr).move(-5);
+			left = true;
 		}
 		else if(e.getKeyCode() == KeyEvent.VK_D)
 		{
-			gm.getPlayer(playerNmr).move(5);
+			right = true;
 		}
 		
 	}
@@ -48,7 +54,8 @@ public class Game extends AbstractModel{
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+		left = false;
+		right = false;
 	}
 
 }

@@ -61,10 +61,12 @@ private Shape playerShape;
 	{
 		if(playerNmr >2)
 		{
+			if(playerShape.getBounds2D().getX()>0 && toMove<0 || playerShape.getBounds2D().getX() + playerShape.getBounds2D().getWidth() <600 && toMove>0)
 			((Rectangle2D)playerShape).setFrame(playerShape.getBounds2D().getX()+toMove,playerShape.getBounds2D().getY(),100,5);
 		}
 		else
 		{
+			if(playerShape.getBounds2D().getY()>0 && toMove<0 || playerShape.getBounds2D().getY() + playerShape.getBounds2D().getHeight() <600 && toMove>0)
 			((Rectangle2D)playerShape).setFrame(playerShape.getBounds2D().getX(),playerShape.getBounds2D().getY()+toMove,5,100);
 		}
 	}
