@@ -13,17 +13,11 @@ public class StateController {
 	
 	public void switchState(int state)
 	{
-		switch(state)
-		{
-		case 0:
-			game.setState(0);
-			break;
-		case 1:
-			game.setState(1);
-			break;
-		case 2:
-			
-		}
+		game.setState(state);
 	}
-
+	
+	public enum State
+	{
+		menu, game, createGame, joinGame;
+	}
 }

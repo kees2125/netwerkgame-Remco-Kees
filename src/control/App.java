@@ -1,6 +1,5 @@
 package control;
 
-import model.Player;
 import view.Window;
 
 public class App {
@@ -12,6 +11,7 @@ public class App {
 	
 	public App()
 	{
+		@SuppressWarnings("unused")
 		Window window = new Window();
 	}
 

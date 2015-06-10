@@ -22,6 +22,7 @@ public class StartGame extends AbstractModel{
 		g2.setFont(new Font("Impact", Font.BOLD + Font.ITALIC, 100));
 		g2.drawString("Create Game", 0, 100);
 		g2.setFont(new Font("Impact", Font.BOLD, 20));
+		// TODO server settings + starting internet connection
 	}
 
 	@Override

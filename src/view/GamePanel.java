@@ -13,7 +13,9 @@ import javax.swing.Timer;
 
 import model.AbstractModel;
 import model.Game;
+import model.JoinGame;
 import model.Menu;
+import model.StartGame;
 import control.KeyBoardHandler;
 import control.StateController;
 
@@ -38,10 +40,11 @@ public class GamePanel extends JPanel implements ActionListener
 		this.controller = new StateController(this);
 		models.add(new Menu(frame, controller));
 		models.add(new Game());
-		models.get(1).init(1,2);
+		models.add(new StartGame(controller));
+		models.add(new JoinGame(controller));
 		this.timer = new Timer(1000/120, this);
 		timer.start();
-		this.abstractModel = 0; //set model
+		this.abstractModel = 0;
 		this.keyHandler = new KeyBoardHandler(this);
 		addKeyListener(keyHandler);
 		this.setFocusable(true);
@@ -51,6 +54,7 @@ public class GamePanel extends JPanel implements ActionListener
 	public void setState(int state)
 	{
 		this.abstractModel = state;
+		models.get(abstractModel).init(1, 2);
 	}
 	public void paintComponent(Graphics g)
 	{
@@ -67,10 +71,5 @@ public class GamePanel extends JPanel implements ActionListener
 	public AbstractModel getState()
 	{
 		return models.get(abstractModel);
-	}
-	
-	public enum State
-	{
-		menu, game, createGame, joinGame;
 	}
 }

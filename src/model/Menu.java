@@ -12,28 +12,20 @@ import control.StateController;
 
 public class Menu extends AbstractModel{
 	
-	private int menuItem, window;
+	private int menuItem;
 	private JFrame frame;
-	private JoinGame join;
-	private StartGame start;
 	private StateController controller;
 	
 	public Menu(JFrame frame, StateController controller)
 	{
 		this.controller = controller;
 		this.menuItem = 1;
-		this.window = 0;
 		this.frame = frame;
-		this.join = new JoinGame(controller);
-		this.start = new StartGame(controller);
 	}
 
 	@Override
 	public void draw(Graphics2D g2) {
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		switch(window)
-		{
-		case 0:
 			g2.setColor(Color.WHITE);
 			g2.setFont(new Font("Impact", Font.BOLD+Font.ITALIC, 96));
 			g2.drawString("Pong Extreme", 0, 90);
@@ -73,33 +65,10 @@ public class Menu extends AbstractModel{
 				g2.setColor(Color.WHITE);
 			}
 			g2.drawString("Exit", frame.getWidth()/2-100, 550);
-			break;
-		case 1:
-			start.draw(g2);
-			break;
-		case 2:
-			join.draw(g2);
-			break;
-		}
-		
 	}
 
 	@Override
 	public void update() {
-		switch(window)
-		{
-		case 1:
-			start.update();
-			break;
-		case 2:
-			join.update();
-			break;
-		}
-	}
-	
-	public void switchState(int window)
-	{
-		this.window = window;
 	}
 
 	@Override
@@ -110,9 +79,6 @@ public class Menu extends AbstractModel{
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		switch(window)
-		{
-		case 0:
 			switch(e.getKeyCode())
 			{
 			case KeyEvent.VK_UP:
@@ -127,49 +93,30 @@ public class Menu extends AbstractModel{
 					menuItem++;
 				}
 				break;
-			}
-		case 1:
-			start.keyPressed(e);
-			break;
-		case 2:
-			join.keyPressed(e);
-			break;
 		}	
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		switch(window)
-		{
-		case 0:
 			switch(e.getKeyCode())
 			{
 			case KeyEvent.VK_ENTER:
 				switch(menuItem)
 				{
 				case 1:
-					start.init(0, 0);
-					window = 1;
+					controller.switchState(2);
 					break;
 				case 2:
-					join.init(0, 0);
-					window = 2;
+					controller.switchState(3);
 					break;
 				case 3:
 					break;
 				case 4:
 					frame.dispose();
+					System.exit(0);
 					break;
 				}
 				break;
 			}
-			break;
-		case 1:
-			start.keyReleased(e);
-			break;
-		case 2:
-			join.keyReleased(e);
-			break;
-		}
 	}
 }
