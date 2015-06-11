@@ -5,15 +5,18 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
+import control.ClientController;
 import control.StateController;
 
 public class JoinGame extends AbstractModel{
 	
 	private StateController controller;
+	private ClientController client;
 
 	public JoinGame(StateController controller)
 	{
 		this.controller = controller;
+		this.client = null;
 	}
 
 	@Override
@@ -32,7 +35,7 @@ public class JoinGame extends AbstractModel{
 
 	@Override
 	public void init(int x, int y) {
-		// TODO Auto-generated method stub
+		this.client = new ClientController();
 		
 	}
 

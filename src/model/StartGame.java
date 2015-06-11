@@ -4,16 +4,21 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
+import control.ServerController;
 import control.StateController;
 
 public class StartGame extends AbstractModel{
 	
+	private ServerController server;
 	private StateController controller;
+	private int players;
 
 	public StartGame(StateController controller)
 	{
 		this.controller = controller;
+		this.server = null;
 	}
 
 	@Override
@@ -22,18 +27,20 @@ public class StartGame extends AbstractModel{
 		g2.setFont(new Font("Impact", Font.BOLD + Font.ITALIC, 100));
 		g2.drawString("Create Game", 0, 100);
 		g2.setFont(new Font("Impact", Font.BOLD, 20));
-		// TODO server settings + starting internet connection
+		g2.drawString(players + " players", 0, 200);
+		g2.drawString("Remco's Pong Game", 0, 220);
+		g2.drawString("Press Enter to continue", 0, 240);
 	}
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
+		players = server.getPlayers();
 		
 	}
 
 	@Override
 	public void init(int x, int y) {
-		// TODO Auto-generated method stub
+		this.server = new ServerController();
 		
 	}
 

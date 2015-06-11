@@ -10,7 +10,7 @@ public class Game extends AbstractModel{
 	private GameManager gm;
 	private int speed = 5;
 	private int playerNmr;
-	boolean right,left;
+	boolean down,up;
 	@Override
 	public void draw(Graphics2D g2) {
 		g2.setColor(Color.WHITE);
@@ -22,9 +22,9 @@ public class Game extends AbstractModel{
 	@Override
 	public void update() {
 		gm.Update();
-		if(left)
+		if(up)
 			gm.getPlayer(playerNmr).move(-speed);
-		if(right)
+		if(down)
 			gm.getPlayer(playerNmr).move(speed);
 	}
 
@@ -38,21 +38,21 @@ public class Game extends AbstractModel{
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_A)
+		if(e.getKeyCode() == KeyEvent.VK_W)
 		{
-			left = true;
+			up = true;
 		}
-		else if(e.getKeyCode() == KeyEvent.VK_D)
+		else if(e.getKeyCode() == KeyEvent.VK_S)
 		{
-			right = true;
+			down = true;
 		}
 		
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		left = false;
-		right = false;
+		up = false;
+		down = false;
 	}
 
 }
