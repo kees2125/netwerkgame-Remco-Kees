@@ -6,6 +6,7 @@ public class ServerController {
 	
 	private Thread server;
 	private int players = 0;
+	private Thread client;
 	private ArrayList<PlayerInfo> playerinfo;
 
 	public ServerController(int maxPlayers)
@@ -27,11 +28,16 @@ public class ServerController {
 	
 	public PlayerInfo getInfo(int number)
 	{
-		return playerinfo.get(number);
+		System.out.println(number);
+		if(playerinfo.size() > number)
+			return playerinfo.get(number);
+		else
+			return null;
 	}
 	
 	public void addPlayer(String IPadres, String host)
 	{
-		playerinfo.add(new PlayerInfo(players,IPadres, host));
+		playerinfo.add(new PlayerInfo(players, IPadres, host));
+		System.out.println("addplayer");
 	}
 }

@@ -36,5 +36,6 @@ public class Client implements Runnable{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		clientController.setInetadres(socket.getInetAddress());
 	}
 }

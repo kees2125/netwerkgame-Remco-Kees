@@ -16,10 +16,6 @@ public class ClientThread implements Runnable{
 	{
 		this.socket = socket;
 		this.server = server;
-	}
-	
-	@Override
-	public void run() {
 		try {
 			in = new DataInputStream(socket.getInputStream());
 		} catch (IOException e) {
@@ -31,6 +27,11 @@ public class ClientThread implements Runnable{
 			e.printStackTrace();
 		}
 		server.addPlayer(socket.getInetAddress().getHostAddress(), socket.getInetAddress().getHostName());
+	}
+	
+	@Override
+	public void run() {
+		
 	}
 
 }

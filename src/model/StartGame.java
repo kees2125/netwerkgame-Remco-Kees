@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
+import control.ClientController;
 import control.ServerController;
 import control.StateController;
 
@@ -12,6 +13,7 @@ public class StartGame extends AbstractModel{
 	
 	private ServerController server;
 	private StateController controller;
+	private ClientController client;
 	private int players;
 	private int maxPlayers = -1;
 	private boolean waiting = false;
@@ -31,11 +33,15 @@ public class StartGame extends AbstractModel{
 		g2.drawString("maximum players: " + maxPlayers, 0, 200);
 		if(waiting)
 		{
-			g2.drawString(players + " players connected", 0, 220);
-			g2.drawString("Remco's Pong Game", 0, 240);
+			g2.drawString("Remco's Pong Game", 0, 220);
+			g2.drawString("Waiting for players", 0, 240);
+			g2.drawString(players + " players connected", 0, 260);
 			for(int i = 1; i <= players; i++)
 			{
-				g2.drawString("Player " + i + " " + server.getInfo(i-1).getIPadres() + " " + server.getInfo(i-1).getHostName(), 0, 260 + 20*i);
+				if(server.getInfo(i-1) != null)
+				{
+					g2.drawString("Player " + i + " " + server.getInfo(i-1).getIPadres() + " " + server.getInfo(i-1).getHostName(), 0, 260 + 20*i);
+				}
 			}
 			if(players == maxPlayers)
 			{
@@ -59,6 +65,7 @@ public class StartGame extends AbstractModel{
 	public void startServer()
 	{
 		this.server = new ServerController(maxPlayers);
+		this.client = new ClientController();
 	}
 
 	@Override
@@ -84,24 +91,24 @@ public class StartGame extends AbstractModel{
 			{
 				controller.switchState(1);
 			}
-			else if(maxPlayers > 1)
+			else if(maxPlayers > 1 && !waiting)
 			{
 				startServer();
 				waiting = true;
 			}
 			break;
 		case KeyEvent.VK_UP:
-			if(maxPlayers < 0)
+			if(maxPlayers < 0 && !waiting)
 			{
 				maxPlayers = 1;
 			}
-			else if(maxPlayers < 4)
+			else if(maxPlayers < 4 && !waiting)
 			{
 				maxPlayers ++;
 			}
 			break;
 		case KeyEvent.VK_DOWN:
-			if(maxPlayers > 1)
+			if(maxPlayers > 1 && !waiting)
 			{
 				maxPlayers --;
 			}

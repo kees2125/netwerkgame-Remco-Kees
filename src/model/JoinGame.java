@@ -12,11 +12,14 @@ public class JoinGame extends AbstractModel{
 	
 	private StateController controller;
 	private ClientController client;
+	private String serverAdres;
+	private boolean connected;
 
 	public JoinGame(StateController controller)
 	{
 		this.controller = controller;
 		this.client = null;
+		this.serverAdres = null;
 	}
 
 	@Override
@@ -25,18 +28,23 @@ public class JoinGame extends AbstractModel{
 		g2.setFont(new Font("Impact", Font.BOLD + Font.ITALIC, 100));
 		g2.drawString("Join Game", 0, 100);
 		g2.setFont(new Font("Impact", Font.BOLD, 20));
+		if(connected)
+		{
+			g2.drawString("Joined the server, waiting for the game to start.", 0, 120);
+			g2.drawString("IPadres: " + serverAdres, 0, 140);
+		}
 	}
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
+		this.serverAdres = client.getInetadres().getHostAddress();
 		
 	}
 
 	@Override
 	public void init(int x, int y) {
 		this.client = new ClientController();
-		
+		this.connected = true;
 	}
 
 	@Override
