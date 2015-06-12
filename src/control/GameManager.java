@@ -21,10 +21,9 @@ public class GameManager {
 			players.add(new Player(i+1));
 		}
 		
-		
 	}
 	
-	public void Update()
+	public void update()
 	{
 		int temp =0;
 		Area tempArea = new Area(ball.getShape());

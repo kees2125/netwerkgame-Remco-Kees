@@ -11,6 +11,7 @@ public class Game extends AbstractModel{
 	private int speed = 5;
 	private int playerNmr;
 	boolean down,up;
+	
 	@Override
 	public void draw(Graphics2D g2) {
 		g2.setColor(Color.WHITE);
@@ -21,7 +22,7 @@ public class Game extends AbstractModel{
 
 	@Override
 	public void update() {
-		gm.Update();
+		gm.update();
 		if(up)
 			gm.getPlayer(playerNmr).move(-speed);
 		if(down)

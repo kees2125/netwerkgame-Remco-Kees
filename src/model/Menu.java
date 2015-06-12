@@ -25,7 +25,6 @@ public class Menu extends AbstractModel{
 
 	@Override
 	public void draw(Graphics2D g2) {
-		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 			g2.setColor(Color.WHITE);
 			g2.setFont(new Font("Impact", Font.BOLD+Font.ITALIC, 96));
 			g2.drawString("Pong Extreme", 0, 90);

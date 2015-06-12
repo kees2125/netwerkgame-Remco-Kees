@@ -21,7 +21,7 @@ public class Client implements Runnable{
 	public void run() {
 		try {
 			this.socket = new Socket("localhost", 8000);
-			System.out.println(socket.getInetAddress());
+			clientController.setInetadres(socket.getInetAddress());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -33,16 +33,6 @@ public class Client implements Runnable{
 		}
 		try {
 			this.out = new DataOutputStream(socket.getOutputStream());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
-			out.writeDouble(1.555);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
-			System.out.println(in.readDouble());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
