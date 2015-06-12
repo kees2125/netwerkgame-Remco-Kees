@@ -7,7 +7,8 @@ public class Ball {
 	
 	private Shape shape = new Ellipse2D.Double();
 	private double xVelosity,yVelosity;
-	private double speedAddit = 1.2;
+	private double speedAddit = 0.6;
+	private int counter;
 	
 	public Ball(int x,int y,int radius)
 	{
@@ -19,26 +20,26 @@ public class Ball {
 	public void update(int colision)
 	{
 		
+		counter ++;
+		if(counter >30)
 		if(colision ==1)
 		{
-			xVelosity += speedAddit * Math.random();
-			yVelosity += speedAddit * Math.random();
+			addRandom();
 			xVelosity = -xVelosity;
+			counter = 0;
 			
 		}
 		else if(colision == 2){
-			xVelosity += speedAddit * Math.random();
-			yVelosity += speedAddit * Math.random();
+			addRandom();
 			yVelosity = -yVelosity;
-			
+			counter = 0;
 		}
 		else if(colision == 3 )
 		{
-			xVelosity += speedAddit * Math.random();
-			yVelosity += speedAddit * Math.random();
+			addRandom();
 			xVelosity = -xVelosity;
 			yVelosity = -yVelosity;
-			
+			counter = 0;
 		}
 		Moveball(xVelosity,yVelosity);
 		
@@ -52,5 +53,25 @@ public class Ball {
 	public Shape getShape()
 	{
 		return shape;
+	}
+	private void addRandom()
+	{
+		double temp = Math.random();
+		if(xVelosity >0)
+		{
+			xVelosity +=  speedAddit * temp;
+		}
+		else
+		{
+			xVelosity -=  speedAddit * temp;
+		}
+		if(yVelosity>0)
+		{
+			yVelosity += speedAddit * temp;
+		}
+		else
+		{
+			yVelosity -= speedAddit * temp;
+		}
 	}
 }
