@@ -2,14 +2,15 @@ package model;
 import java.awt.Shape;
 import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
+import java.util.Comparator;
 
-public class Player {
+public class Player implements Comparable,Comparator<Shape> {
 private int score;
 private int playerNmr;
 private Shape playerShape;
 
 
-	public Player(int Nmr)
+	public Player(int Nmr)  
 	{
 		score = 0;
 		playerNmr = Nmr;
@@ -79,6 +80,36 @@ private Shape playerShape;
 	public int getPlayerNmr()
 	{
 		return playerNmr;
+	}
+
+
+	@Override
+	public int compareTo(Object shape) {
+		
+		   if(playerShape.equals(shape))
+		   {
+			   return 1;
+		   }
+		   else
+		   {
+			   return 0;
+		   }
+	}
+
+
+	
+
+	@Override
+	public int compare(Shape shape1, Shape shape2) {
+		Area areaA = new Area((Shape) shape1);
+		   if(!areaA.equals(new Area((Shape) shape2)))
+		   {
+			   return 1;
+		   }
+		   else
+		   {
+			   return 0;
+		   }
 	}
 }
 
