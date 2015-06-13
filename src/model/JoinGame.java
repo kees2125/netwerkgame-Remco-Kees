@@ -30,14 +30,21 @@ public class JoinGame extends AbstractModel{
 		g2.setFont(new Font("Impact", Font.BOLD, 20));
 		if(connected)
 		{
-			g2.drawString("Joined the server, waiting for the game to start.", 0, 120);
+			g2.drawString("Joined the server as player " + client.getPlayer() + ", waiting for the game to start.", 0, 120);
 			g2.drawString("IPadres: " + serverAdres, 0, 140);
 		}
 	}
 
 	@Override
 	public void update() {
-		this.serverAdres = client.getInetadres().getHostAddress();
+		if(client.getInetadres() != null)
+		{
+			this.serverAdres = client.getInetadres().getHostAddress();
+		}
+		if(client.isStarted())
+		{
+			controller.switchState(1);
+		}
 		
 	}
 

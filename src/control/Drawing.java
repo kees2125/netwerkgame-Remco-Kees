@@ -14,7 +14,6 @@ public class Drawing {
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		g2.clearRect(290, 290, 50, 50);

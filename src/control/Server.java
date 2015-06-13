@@ -23,9 +23,9 @@ public class Server implements Runnable{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		for(int i = 0; i < maxPlayers; i++)
+		//TODO fix probleem met een client die de verbinding verliest.
+		while(true)
 		{
-			
 			try {
 				Socket socket = serversocket.accept();
 				System.out.println("player joined");
