@@ -2,6 +2,7 @@ package control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.geom.Point2D;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -39,19 +40,64 @@ public class Client implements Runnable, ActionListener{
 		}
 		
 		clientController.setInetadres(socket.getInetAddress());
-		this.timer = new Timer(1000/120, this);
+		this.timer = new Timer(1000/60, this);
 			timer.start();
 		}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		boolean running = false;
 		try {
-			if(in.readBoolean());
-			{
-				clientController.startServer();
-			}
+			running = in.readBoolean();
 		} catch (IOException arg1) {
 			arg1.printStackTrace();
+			running = false;
 		}
+		clientController.setRunning(running);
+		try {
+			int players = in.readInt();
+			clientController.setTotalPlayers(players);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		double x = 0;
+		try {
+			x = in.readDouble();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		double y = 0;
+		try {
+			y = in.readDouble();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		clientController.setBall(new Point2D.Double(x,y));
+		double x1 = 0;
+		double y1 = 0;
+		try {
+			x1 = in.readDouble();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		try {
+			y1 = in.readDouble();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		int score1 = 0;
+		int score2 = 0;
+		try {
+			score1 = in.readInt();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		try {
+			score2 = in.readInt();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		clientController.setScore(score1, score2);
+		clientController.getPlayerInfo(0).setPosition(new Point2D.Double(x1,y1));
 	}
-	}
+}

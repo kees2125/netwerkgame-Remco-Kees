@@ -4,13 +4,22 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
+import control.ClientController;
+import control.Controlmanager;
 import control.GameManager;
+import control.ServerController;
 
 public class Game extends AbstractModel{
+	private Controlmanager control;
 	private GameManager gm;
 	private int speed = 5;
 	private int playerNmr;
 	boolean down,up;
+	
+	public Game(Controlmanager control)
+	{
+		this.control = control;
+	}
 	
 	@Override
 	public void draw(Graphics2D g2) {
@@ -31,9 +40,9 @@ public class Game extends AbstractModel{
 
 	@Override
 	
-	public void init(int thisPlayer,int totalPlayers) {
+	public void init(int thisPlayer,int totalPlayers, boolean server) {
 		playerNmr = thisPlayer;
-		gm = new GameManager(totalPlayers);
+		gm = new GameManager(control);
 		
 	}
 
@@ -48,6 +57,16 @@ public class Game extends AbstractModel{
 			down = true;
 		}
 		
+	}
+	
+	public void setServer(ServerController server)
+	{
+		this.control.setServer(server);
+	}
+	
+	public void setClient(ClientController client)
+	{
+		this.control.setClient(client);
 	}
 
 	@Override

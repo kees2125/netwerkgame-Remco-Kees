@@ -17,6 +17,7 @@ import model.Game;
 import model.JoinGame;
 import model.Menu;
 import model.StartGame;
+import control.Controlmanager;
 import control.KeyBoardHandler;
 import control.StateController;
 
@@ -32,18 +33,18 @@ public class GamePanel extends JPanel implements ActionListener
 	private Timer timer;
 	private int abstractModel;
 	private KeyBoardHandler keyHandler;
-	private StateController controller;
+	private Controlmanager control;
 	
 	/* Constructor */
 	public GamePanel(JFrame frame)
 	{
 		setPreferredSize(new Dimension(600,600));
-		this.controller = new StateController(this);
-		models.add(new Menu(frame, controller));
-		models.add(new Game());
-		models.add(new StartGame(controller));
-		models.add(new JoinGame(controller));
-		this.timer = new Timer(1000/120, this);
+		this.control = new Controlmanager(this);
+		models.add(new Menu(frame, control));
+		models.add(new Game(control));
+		models.add(new StartGame(control));
+		models.add(new JoinGame(control));
+		this.timer = new Timer(1000/60, this);
 		timer.start();
 		this.abstractModel = 0;
 		this.keyHandler = new KeyBoardHandler(this);
@@ -52,10 +53,10 @@ public class GamePanel extends JPanel implements ActionListener
 		this.requestFocusInWindow();
 	}
 	
-	public void setState(int state)
+	public void setState(int state, boolean server)
 	{
 		this.abstractModel = state;
-		models.get(abstractModel).init(1, 2);
+		models.get(abstractModel).init(1, 2, server);
 	}
 	public void paintComponent(Graphics g)
 	{

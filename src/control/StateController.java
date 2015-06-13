@@ -11,9 +11,9 @@ public class StateController {
 		this.game = game;
 	}
 	
-	public void switchState(int state)
+	public void switchState(int state, boolean server)
 	{
-		game.setState(state);
+		game.setState(state, server);
 	}
 	
 	public enum State

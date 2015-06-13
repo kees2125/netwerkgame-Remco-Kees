@@ -6,19 +6,18 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
 import control.ClientController;
+import control.Controlmanager;
 import control.StateController;
 
 public class JoinGame extends AbstractModel{
 	
-	private StateController controller;
-	private ClientController client;
 	private String serverAdres;
 	private boolean connected;
+	private Controlmanager control;
 
-	public JoinGame(StateController controller)
+	public JoinGame(Controlmanager control)
 	{
-		this.controller = controller;
-		this.client = null;
+		this.control = control;
 		this.serverAdres = null;
 	}
 
@@ -30,27 +29,28 @@ public class JoinGame extends AbstractModel{
 		g2.setFont(new Font("Impact", Font.BOLD, 20));
 		if(connected)
 		{
-			g2.drawString("Joined the server as player " + client.getPlayer() + ", waiting for the game to start.", 0, 120);
+			g2.drawString("Joined the server as player " + control.getClient().getPlayer() + ", waiting for the game to start.", 0, 120);
 			g2.drawString("IPadres: " + serverAdres, 0, 140);
 		}
 	}
 
 	@Override
 	public void update() {
-		if(client.getInetadres() != null)
+		if(control.getClient().getInetadres() != null)
 		{
-			this.serverAdres = client.getInetadres().getHostAddress();
+			this.serverAdres = control.getClient().getInetadres().getHostAddress();
 		}
-		if(client.isStarted())
+		if(control.getClient().isStarted())
 		{
-			controller.switchState(1);
+			control.getState().switchState(1, false);
 		}
 		
 	}
 
 	@Override
-	public void init(int x, int y) {
-		this.client = new ClientController();
+	public void init(int x, int y, boolean server) {
+		control.setClient(new ClientController());
+		control.setClient(true);
 		this.connected = true;
 	}
 
@@ -65,7 +65,7 @@ public class JoinGame extends AbstractModel{
 		switch(e.getKeyCode())
 		{
 		case KeyEvent.VK_ESCAPE:
-			controller.switchState(0);
+			control.getState().switchState(0, false);
 			break;
 		}
 	}

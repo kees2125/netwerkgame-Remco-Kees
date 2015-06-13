@@ -95,10 +95,7 @@ private Shape playerShape;
 			   return 0;
 		   }
 	}
-
-
 	
-
 	@Override
 	public int compare(Shape shape1, Shape shape2) {
 		Area areaA = new Area((Shape) shape1);

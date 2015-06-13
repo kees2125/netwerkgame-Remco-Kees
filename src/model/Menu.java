@@ -3,22 +3,21 @@ package model;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
-import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
 
-import control.StateController;
+import control.Controlmanager;
 
 public class Menu extends AbstractModel{
 	
 	private int menuItem;
 	private JFrame frame;
-	private StateController controller;
+	private Controlmanager control;
 	
-	public Menu(JFrame frame, StateController controller)
+	public Menu(JFrame frame, Controlmanager control)
 	{
-		this.controller = controller;
+		this.control = control;
 		this.menuItem = 1;
 		this.frame = frame;
 	}
@@ -71,7 +70,7 @@ public class Menu extends AbstractModel{
 	}
 
 	@Override
-	public void init(int x, int y) {
+	public void init(int x, int y, boolean server) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -103,10 +102,10 @@ public class Menu extends AbstractModel{
 				switch(menuItem)
 				{
 				case 1:
-					controller.switchState(2);
+					control.getState().switchState(2, false);
 					break;
 				case 2:
-					controller.switchState(3);
+					control.getState().switchState(3, false);
 					break;
 				case 3:
 					break;

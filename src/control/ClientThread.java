@@ -26,7 +26,7 @@ public class ClientThread implements Runnable, ActionListener{
 			out = new DataOutputStream(socket.getOutputStream());
 			server.addPlayer(socket.getInetAddress().getHostAddress(), socket.getInetAddress().getHostName());
 			out.writeInt(server.getPlayers());
-			this.timer = new Timer(1000/120, this);
+			this.timer = new Timer(1000/60, this);
 			timer.start();
 			
 			
@@ -43,11 +43,10 @@ public class ClientThread implements Runnable, ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		if(server.isStarted())
+		if(server.gameIsStarted())
 		{
 			try {
 				out.writeBoolean(true);
-				System.out.println("started");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -56,6 +55,52 @@ public class ClientThread implements Runnable, ActionListener{
 		{
 			try {
 				out.writeBoolean(false);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		try {
+			out.writeInt(server.getPlayers());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			out.writeDouble(server.getBall().getX());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			out.writeDouble(server.getBall().getY());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			out.writeDouble(server.getInfo(0).getPosition().getX());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			out.writeDouble(server.getInfo(0).getPosition().getY());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			out.writeInt(server.getInfo(0).getScore());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		if(server.getInfo(1) != null)
+		{
+			try {
+				out.writeInt(server.getInfo(1).getScore());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		else
+		{
+			try {
+				out.writeInt(0);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

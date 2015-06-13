@@ -6,22 +6,18 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
 import control.ClientController;
+import control.Controlmanager;
 import control.ServerController;
 import control.StateController;
 
 public class StartGame extends AbstractModel{
 	
-	private ServerController server;
-	private StateController controller;
-	private ClientController client;
 	private int players;
-	private int maxPlayers = -1;
-	private boolean waiting = false;
+	private Controlmanager control;
 
-	public StartGame(StateController controller)
+	public StartGame(Controlmanager control)
 	{
-		this.controller = controller;
-		this.server = null;
+		this.control = control;
 	}
 
 	@Override
@@ -30,47 +26,41 @@ public class StartGame extends AbstractModel{
 		g2.setFont(new Font("Impact", Font.BOLD + Font.ITALIC, 100));
 		g2.drawString("Create Game", 0, 100);
 		g2.setFont(new Font("Impact", Font.BOLD, 20));
-		g2.drawString("maximum players: " + maxPlayers, 0, 200);
-		if(waiting)
+		g2.drawString("maximum players: " + 2, 0, 200);
+		g2.drawString("Remco's Pong Game", 0, 220);
+		g2.drawString("Waiting for players", 0, 240);
+		g2.drawString(players + " players connected", 0, 260);
+		for(int i = 1; i <= players; i++)
 		{
-			g2.drawString("Remco's Pong Game", 0, 220);
-			g2.drawString("Waiting for players", 0, 240);
-			g2.drawString(players + " players connected", 0, 260);
-			for(int i = 1; i <= players; i++)
+			if(control.getServer().getInfo(i-1) != null)
 			{
-				if(server.getInfo(i-1) != null)
-				{
-					g2.drawString("Player " + i + " " + server.getInfo(i-1).getIPadres() + " " + server.getInfo(i-1).getHostName(), 0, 260 + 20*i);
-				}
-			}
-			if(players == maxPlayers)
-			{
-				g2.drawString("Press Enter to start the game", 0, 400);
+				g2.drawString("Player " + i + " " + control.getServer().getInfo(i-1).getIPadres() + " " + control.getServer().getInfo(i-1).getHostName(), 0, 260 + 20*i);
 			}
 		}
-		else
+		if(players == 2)
 		{
-			g2.drawString("Press Enter to create a game", 0, 220);
+			g2.drawString("Press Enter to start the game", 0, 400);
 		}
 	}
 
 	@Override
 	public void update() {
-		if(server != null)
+		if(control.getServer() != null)
 		{
-			players = server.getPlayers();
+			players = control.getServer().getPlayers();
 		}
 	}
 	
 	public void startServer()
 	{
-		this.server = new ServerController(maxPlayers);
-		this.client = new ClientController();
+		this.control.getServer().startServer(2);
+		this.control.setServer(true);
+		this.control.setClient(new ClientController());
 	}
 
 	@Override
-	public void init(int x, int y) {
-		
+	public void init(int x, int y, boolean server) {
+		startServer();
 	}
 
 	@Override
@@ -84,34 +74,15 @@ public class StartGame extends AbstractModel{
 		switch(e.getKeyCode())
 		{
 		case KeyEvent.VK_ESCAPE:
-			controller.switchState(0);
+			control.getState().switchState(0, false);
 			break;
 		case KeyEvent.VK_ENTER:
-			if(players == maxPlayers && waiting)
+			if(players == 2)
 			{
-				controller.switchState(1);
-			}
-			else if(maxPlayers > 1 && !waiting)
-			{
-				startServer();
-				waiting = true;
+				control.getServer().startGame();
+				control.getState().switchState(1, true);
 			}
 			break;
-		case KeyEvent.VK_UP:
-			if(maxPlayers < 0 && !waiting)
-			{
-				maxPlayers = 1;
-			}
-			else if(maxPlayers < 4 && !waiting)
-			{
-				maxPlayers ++;
-			}
-			break;
-		case KeyEvent.VK_DOWN:
-			if(maxPlayers > 1 && !waiting)
-			{
-				maxPlayers --;
-			}
 		}
 		
 	}

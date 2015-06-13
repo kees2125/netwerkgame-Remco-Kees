@@ -1,5 +1,6 @@
 package control;
 
+import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 public class ServerController {
@@ -7,23 +8,29 @@ public class ServerController {
 	private Thread server;
 	private int players = 0;
 	private ArrayList<PlayerInfo> playerinfo;
-	private boolean serverStarted = false;
+	private boolean gameStarted = false;
+	private Point2D ball;
 
-	public ServerController(int maxPlayers)
+	public ServerController()
 	{
 		this.playerinfo = new ArrayList<>();
+		this.setBall(new Point2D.Double());
+	}
+	
+	public void startServer(int maxPlayers)
+	{
 		this.server = new Thread(new Server(this, maxPlayers));
 		server.start();
 	}
 	
-	public void startServer()
+	public void startGame()
 	{
-		this.serverStarted = true;
+		this.gameStarted = true;
 	}
 	
-	public boolean isStarted()
+	public boolean gameIsStarted()
 	{
-		return serverStarted;
+		return gameStarted;
 	}
 	
 	public void playerJoined()
@@ -47,5 +54,13 @@ public class ServerController {
 	public void addPlayer(String IPadres, String host)
 	{
 		playerinfo.add(new PlayerInfo(players, IPadres, host));
+	}
+
+	public Point2D getBall() {
+		return ball;
+	}
+
+	public void setBall(Point2D ball) {
+		this.ball = ball;
 	}
 }
