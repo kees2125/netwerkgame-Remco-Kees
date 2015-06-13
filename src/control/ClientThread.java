@@ -2,6 +2,7 @@ package control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.geom.Point2D;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -16,12 +17,14 @@ public class ClientThread implements Runnable, ActionListener{
 	private DataOutputStream out;
 	private ServerController server;
 	private Timer timer;
+	private boolean isrunning = false;
 
 	public ClientThread(Socket socket, ServerController server)
 	{
 		this.socket = socket;
 		this.server = server;
 		try {
+			socket.setTcpNoDelay(true);
 			in = new DataInputStream(socket.getInputStream());
 			out = new DataOutputStream(socket.getOutputStream());
 			server.addPlayer(socket.getInetAddress().getHostAddress(), socket.getInetAddress().getHostName());
@@ -43,56 +46,47 @@ public class ClientThread implements Runnable, ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		if(server.gameIsStarted())
+		if(!isrunning)
 		{
-			try {
-				out.writeBoolean(true);
-			} catch (IOException e) {
-				e.printStackTrace();
+			if(server.gameIsStarted())
+			{
+				try {
+					out.writeBoolean(true);
+					isrunning = true;
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
-		}
-		else
-		{
-			try {
-				out.writeBoolean(false);
-			} catch (IOException e) {
-				e.printStackTrace();
+			else
+			{
+				try {
+					out.writeBoolean(false);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
-		}
-		try {
-			out.writeInt(server.getPlayers());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
-			out.writeDouble(server.getBall().getX());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
-			out.writeDouble(server.getBall().getY());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
-			out.writeDouble(server.getInfo(0).getPosition().getX());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
-			out.writeDouble(server.getInfo(0).getPosition().getY());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
-			out.writeInt(server.getInfo(0).getScore());
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 		if(server.getInfo(1) != null)
 		{
+		try {
+			int x = in.readInt();
+			int y  = in.readInt();
+			server.getInfo(1).setPosition(new Point2D.Float(x, y));
+			out.writeInt(server.getPlayers());
+			out.writeDouble(server.getBall().getX());
+			out.writeDouble(server.getBall().getY());
+			out.writeDouble(server.getInfo(0).getPosition().getX());
+			out.writeDouble(server.getInfo(0).getPosition().getY());
+			out.writeInt(server.getInfo(0).getScore());
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 			try {
+				
 				out.writeInt(server.getInfo(1).getScore());
+				// Quick_fix();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

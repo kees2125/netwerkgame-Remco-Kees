@@ -26,7 +26,8 @@ public class Client implements Runnable, ActionListener{
 	@Override
 	public void run() {
 		try {
-			this.socket = new Socket("localhost", 8000);	
+			this.socket = new Socket("localhost", 8000);
+			socket.setTcpNoDelay(true);
 			clientController.setInetadres(socket.getInetAddress());
 			System.out.println("connected to server");
 			this.in = new DataInputStream(socket.getInputStream());
@@ -55,9 +56,19 @@ public class Client implements Runnable, ActionListener{
 		}
 		clientController.setRunning(running);
 		try {
+			if(clientController.getTotalPlayers() > 1)
+			{
+				out.writeInt((int) clientController.getPlayerInfo(1).getPosition().getX());
+				out.writeInt((int) clientController.getPlayerInfo(1).getPosition().getY());
+			}
+			else
+			{
+				out.writeInt(0);
+				out.writeInt(0);
+			}
 			int players = in.readInt();
 			clientController.setTotalPlayers(players);
-		} catch (IOException e1) {
+		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
 		double x = 0;

@@ -21,7 +21,7 @@ public class Ball {
 	{
 		
 		counter ++;
-		if(counter >30)
+		if(counter >4)
 		if(colision ==1)
 		{
 			addRandom();

@@ -7,8 +7,6 @@ import java.awt.event.KeyEvent;
 
 import control.ClientController;
 import control.Controlmanager;
-import control.ServerController;
-import control.StateController;
 
 public class StartGame extends AbstractModel{
 	
@@ -84,7 +82,5 @@ public class StartGame extends AbstractModel{
 			}
 			break;
 		}
-		
 	}
-
 }
