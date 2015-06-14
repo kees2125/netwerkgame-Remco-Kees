@@ -24,11 +24,11 @@ public class ClientThread implements Runnable, ActionListener{
 		this.socket = socket;
 		this.server = server;
 		try {
-			socket.setTcpNoDelay(true);
-			in = new DataInputStream(socket.getInputStream());
-			out = new DataOutputStream(socket.getOutputStream());
-			server.addPlayer(socket.getInetAddress().getHostAddress(), socket.getInetAddress().getHostName());
-			out.writeInt(server.getPlayers());
+			this.socket.setTcpNoDelay(true);
+			in = new DataInputStream(this.socket.getInputStream());
+			out = new DataOutputStream(this.socket.getOutputStream());
+			this.server.addPlayer(this.socket.getInetAddress().getHostAddress(), this.socket.getInetAddress().getHostName());
+			out.writeInt(this.server.getPlayers());
 			this.timer = new Timer(1000/60, this);
 			timer.start();
 			
@@ -46,8 +46,7 @@ public class ClientThread implements Runnable, ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		if(!isrunning)
-		{
+		
 			if(server.gameIsStarted())
 			{
 				try {
@@ -65,13 +64,9 @@ public class ClientThread implements Runnable, ActionListener{
 					e.printStackTrace();
 				}
 			}
-		}
-		if(server.getInfo(1) != null)
-		{
+		
+		
 		try {
-			int x = in.readInt();
-			int y  = in.readInt();
-			server.getInfo(1).setPosition(new Point2D.Float(x, y));
 			out.writeInt(server.getPlayers());
 			out.writeDouble(server.getBall().getX());
 			out.writeDouble(server.getBall().getY());
@@ -82,9 +77,12 @@ public class ClientThread implements Runnable, ActionListener{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+		if(server.getInfo(1) != null)
+		{
 			try {
-				
+				int x = in.readInt();
+				int y  = in.readInt();
+				server.getInfo(1).setPosition(new Point2D.Float(x, y));
 				out.writeInt(server.getInfo(1).getScore());
 				// Quick_fix();
 			} catch (IOException e) {

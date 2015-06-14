@@ -41,7 +41,10 @@ public class Game extends AbstractModel{
 	@Override
 	
 	public void init(int thisPlayer,int totalPlayers, boolean server) {
-		playerNmr = thisPlayer;
+		if(server)
+		playerNmr = 1;
+		else
+		playerNmr =2;
 		gm = new GameManager(control);
 		
 	}

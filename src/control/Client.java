@@ -56,16 +56,7 @@ public class Client implements Runnable, ActionListener{
 		}
 		clientController.setRunning(running);
 		try {
-			if(clientController.getTotalPlayers() > 1)
-			{
-				out.writeInt((int) clientController.getPlayerInfo(1).getPosition().getX());
-				out.writeInt((int) clientController.getPlayerInfo(1).getPosition().getY());
-			}
-			else
-			{
-				out.writeInt(0);
-				out.writeInt(0);
-			}
+			
 			int players = in.readInt();
 			clientController.setTotalPlayers(players);
 		} catch (Exception e1) {
@@ -104,6 +95,16 @@ public class Client implements Runnable, ActionListener{
 			e1.printStackTrace();
 		}
 		try {
+			if(clientController.getTotalPlayers() > 1)
+			{
+				out.writeInt((int) clientController.getPlayerInfo(1).getPosition().getX());
+				out.writeInt((int) clientController.getPlayerInfo(1).getPosition().getY());
+			}
+			else
+			{
+				out.writeInt(0);
+				out.writeInt(0);
+			}
 			score2 = in.readInt();
 		} catch (IOException e1) {
 			e1.printStackTrace();
