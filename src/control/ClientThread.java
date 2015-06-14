@@ -46,7 +46,8 @@ public class ClientThread implements Runnable, ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		
+		int x = 0;
+		int y = 0;
 			if(server.gameIsStarted())
 			{
 				try {
@@ -80,11 +81,13 @@ public class ClientThread implements Runnable, ActionListener{
 		if(server.getInfo(1) != null)
 		{
 			try {
-				int x = in.readInt();
-				int y  = in.readInt();
+				 x = in.readInt();
+				 y  = in.readInt();
+				 System.out.println(x +":"+ y);
+				 if(x != 0)
 				server.getInfo(1).setPosition(new Point2D.Float(x, y));
 				out.writeInt(server.getInfo(1).getScore());
-				// Quick_fix();
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

@@ -55,50 +55,33 @@ public class Client implements Runnable, ActionListener{
 			running = false;
 		}
 		clientController.setRunning(running);
-		try {
-			
-			int players = in.readInt();
-			clientController.setTotalPlayers(players);
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
+		
 		double x = 0;
-		try {
-			x = in.readDouble();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
 		double y = 0;
-		try {
-			y = in.readDouble();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-		clientController.setBall(new Point2D.Double(x,y));
 		double x1 = 0;
 		double y1 = 0;
-		try {
-			x1 = in.readDouble();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-		try {
-			y1 = in.readDouble();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
 		int score1 = 0;
 		int score2 = 0;
 		try {
+			
+			int players = in.readInt();
+			x = in.readDouble();
+			y = in.readDouble();
+			clientController.setBall(new Point2D.Double(x,y));
+			x1 = in.readDouble();
+			y1 = in.readDouble();
+			clientController.setTotalPlayers(players);
 			score1 = in.readInt();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-		try {
+			
 			if(clientController.getTotalPlayers() > 1)
 			{
-				out.writeInt((int) clientController.getPlayerInfo(1).getPosition().getX());
-				out.writeInt((int) clientController.getPlayerInfo(1).getPosition().getY());
+				Point2D PL = clientController.getPlayerInfo(1).getPosition();
+				//System.out.println(PL.getX() + ":" + PL.getY());
+				
+				out.writeInt((int) PL.getX());
+				out.writeInt((int) PL.getY());
+				
+				
 			}
 			else
 			{
@@ -106,10 +89,14 @@ public class Client implements Runnable, ActionListener{
 				out.writeInt(0);
 			}
 			score2 = in.readInt();
-		} catch (IOException e1) {
+			clientController.setScore(score1, score2);
+			clientController.getPlayerInfo(0).setPosition(new Point2D.Double(x1,y1));
+		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
-		clientController.setScore(score1, score2);
-		clientController.getPlayerInfo(0).setPosition(new Point2D.Double(x1,y1));
+		
+	
+		
+		
 	}
 }

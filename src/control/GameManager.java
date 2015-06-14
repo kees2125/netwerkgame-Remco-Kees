@@ -90,6 +90,10 @@ public class GameManager<E> {
 			ball.update(temp);
 			control.getServer().setBall(new Point2D.Double(ball.getShape().getBounds2D().getX(), ball.getShape().getBounds2D().getY()));
 			control.getServer().getInfo(0).setPosition(new Point2D.Double(((Player)players.get(0)).getPlayerShape().getBounds2D().getX(), ((Player)players.get(0)).getPlayerShape().getBounds2D().getY()));
+			
+			Shape playerShape = new Rectangle2D.Double();
+			((Rectangle2D)playerShape).setFrame(control.getServer().getInfo(1).getPosition().getX(),control.getServer().getInfo(1).getPosition().getY(),5,100);
+			((Player) players.get(1)).setPlayerShape(playerShape);
 			for(int i = 0; i < players.size(); i++)
 			{
 				control.getServer().getInfo(i).setScore(((Player) players.get(i)).getScore());
@@ -102,6 +106,7 @@ public class GameManager<E> {
 			Shape playerShape = new Rectangle2D.Double();
 			((Rectangle2D)playerShape).setFrame(control.getClient().getPlayerInfo(0).getPosition().getX(),control.getClient().getPlayerInfo(0).getPosition().getY(),5,100);
 			((Player) players.get(0)).setPlayerShape(playerShape);
+			control.getClient().getPlayerInfo(1).setPosition(new Point2D.Double(((Player)players.get(1)).getPlayerShape().getBounds2D().getX(), ((Player)players.get(1)).getPlayerShape().getBounds2D().getY()));
 		}
 	}
 	
