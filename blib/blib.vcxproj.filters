@@ -1,0 +1,2168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="gl">
+      <UniqueIdentifier>{ddae79ee-17a8-428f-b83f-a01d5973267e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="audio">
+      <UniqueIdentifier>{074d2aae-fd82-4c41-9091-f427ae7d3f37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math">
+      <UniqueIdentifier>{62ec93f8-e387-4ea6-af82-f4d1b17f969b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{320257ed-c49d-4b8b-9c40-786f388aaa7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="wm">
+      <UniqueIdentifier>{750aa160-704c-4b1b-9b9f-45f39fd80253}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="wm\widgets">
+      <UniqueIdentifier>{ffb529b2-b1ca-4992-85a4-ed3335be7262}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external">
+      <UniqueIdentifier>{25dcd8f6-0a7f-42c9-90b3-fabd4df5af20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\box2d">
+      <UniqueIdentifier>{8a5f0b62-f19f-4d30-b7e8-98c8c1ca9a42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="drivers">
+      <UniqueIdentifier>{bc7b0ed1-84a8-46c1-a583-529216c5ac1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="drivers\joystick">
+      <UniqueIdentifier>{6eb82ce0-bad3-47cb-bd4e-40bacf0a24b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform">
+      <UniqueIdentifier>{8b5ba767-1e0a-416e-86cd-c1663b55eb2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform\linux">
+      <UniqueIdentifier>{2635d81e-59e3-41e0-8bcb-cbc9cbc23343}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform\cafe">
+      <UniqueIdentifier>{e81771f5-c9bf-4ca0-89df-099a89feb8e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform\android">
+      <UniqueIdentifier>{3d1cadae-19e5-4f97-9eaf-1e406c83910b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform\osx">
+      <UniqueIdentifier>{a20f583e-1180-4584-84f3-c81f00db7217}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="platform\win32">
+      <UniqueIdentifier>{edf7f2a6-e896-4929-a144-5e86f0887621}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gl\direct">
+      <UniqueIdentifier>{b5bd9405-400d-4e50-aa92-89da941b93ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\bullet">
+      <UniqueIdentifier>{ffe88ae4-5e0e-4088-b4ec-b753af50d145}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\bullet\Bullet3Collision">
+      <UniqueIdentifier>{a676603b-df1d-486e-be5d-7865fb238580}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\bullet\Bullet3Common">
+      <UniqueIdentifier>{62fa4d26-4dbc-4c39-a5d6-779716744286}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\bullet\Bullet3Dynamics">
+      <UniqueIdentifier>{020efca9-26d3-4eab-a6a1-b00e248338b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\bullet\Bullet3Geometry">
+      <UniqueIdentifier>{5a28bd11-b2ab-4057-af05-f9377cbcd73f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\bullet\LinearMath">
+      <UniqueIdentifier>{2627b222-87b1-45bb-90d9-5477cbed0808}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\bullet\BulletCollision">
+      <UniqueIdentifier>{4a853f1b-2cc5-4bd5-bd86-adcb39eacd08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\bullet\BulletDynamics">
+      <UniqueIdentifier>{4876fd2e-a643-488b-b846-55545362594e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="blib\VIO.h" />
+    <ClInclude Include="blib\Window.h" />
+    <ClInclude Include="blib\Animation.h" />
+    <ClInclude Include="blib\App.h" />
+    <ClInclude Include="blib\blib.h" />
+    <ClInclude Include="blib\FBO.h" />
+    <ClInclude Include="blib\Font.h" />
+    <ClInclude Include="blib\IDrawableLine.h" />
+    <ClInclude Include="blib\KeyListener.h" />
+    <ClInclude Include="blib\LineBatch.h" />
+    <ClInclude Include="blib\MouseListener.h" />
+    <ClInclude Include="blib\Renderer.h" />
+    <ClInclude Include="blib\RenderState.h" />
+    <ClInclude Include="blib\Shader.h" />
+    <ClInclude Include="blib\SpriteBatch.h" />
+    <ClInclude Include="blib\Texture.h" />
+    <ClInclude Include="blib\Util.h" />
+    <ClInclude Include="blib\VBO.h" />
+    <ClInclude Include="blib\gl\Camera.h">
+      <Filter>gl</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\gl\FBO.h">
+      <Filter>gl</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\gl\GlResizeRegister.h">
+      <Filter>gl</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\gl\Renderer.h">
+      <Filter>gl</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\gl\Shader.h">
+      <Filter>gl</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\gl\Texture.h">
+      <Filter>gl</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\gl\VAO.h">
+      <Filter>gl</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\gl\VBO.h">
+      <Filter>gl</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\gl\Vertex.h">
+      <Filter>gl</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\gl\VIO.h">
+      <Filter>gl</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\gl\Window.h">
+      <Filter>gl</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\audio\AudioManager.h">
+      <Filter>audio</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\audio\AudioManagerWindows.h">
+      <Filter>audio</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\math\Circle.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\math\Line.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\math\Plane.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\math\Polygon.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\math\Random.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\math\Ray.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\math\Rectangle.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\FileSystem.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\Log.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\Mutex.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\NotCopyable.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\Profiler.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\Semaphore.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\Signal.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\Singleton.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\stb_image.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\Stream.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\StreamIn.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\StreamInFile.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\StreamOut.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\StreamOutFile.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\StreamReader.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\StreamSeekable.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\StreamWriter.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\Thread.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\wm\WM.h">
+      <Filter>wm</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\wm\Window.h">
+      <Filter>wm</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\wm\widgets\button.h">
+      <Filter>wm\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\wm\widgets\ContainerWidget.h">
+      <Filter>wm\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\wm\widgets\Image.h">
+      <Filter>wm\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\wm\widgets\Label.h">
+      <Filter>wm\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\wm\widgets\list.h">
+      <Filter>wm\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\wm\widgets\Panel.h">
+      <Filter>wm\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\wm\widgets\ScrollPanel.h">
+      <Filter>wm\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\wm\widgets\textbox.h">
+      <Filter>wm\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\wm\widgets\Widget.h">
+      <Filter>wm\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\glew\include\GL\glew.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\glew\include\GL\glxew.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\glew\include\GL\wglew.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\poly2tri\common\shapes.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\poly2tri\common\utils.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\poly2tri\poly2tri.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\poly2tri\sweep\advancing_front.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\poly2tri\sweep\cdt.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\poly2tri\sweep\sweep.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\poly2tri\sweep\sweep_context.h">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\clipper\clipper.hpp">
+      <Filter>external</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\ResourceManager.h" />
+    <ClInclude Include="blib\gl\ResourceManager.h">
+      <Filter>gl</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\TextureMap.h" />
+    <ClInclude Include="blib\gl\TextureMap.h">
+      <Filter>gl</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Common\b2BlockAllocator.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Common\b2Draw.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Common\b2GrowableStack.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Common\b2Math.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Common\b2Settings.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Common\b2StackAllocator.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Common\b2Timer.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\b2Body.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\b2ContactManager.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\b2Fixture.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\b2Island.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\b2TimeStep.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\b2World.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\b2WorldCallbacks.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\Contacts\b2ChainAndCircleContact.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\Contacts\b2ChainAndPolygonContact.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\Contacts\b2CircleContact.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\Contacts\b2Contact.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\Contacts\b2ContactSolver.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\Contacts\b2EdgeAndCircleContact.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\Contacts\b2EdgeAndPolygonContact.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\Contacts\b2PolygonAndCircleContact.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\Contacts\b2PolygonContact.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\Joints\b2DistanceJoint.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\Joints\b2FrictionJoint.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\Joints\b2GearJoint.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\Joints\b2Joint.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\Joints\b2MouseJoint.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\Joints\b2PrismaticJoint.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\Joints\b2PulleyJoint.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\Joints\b2RevoluteJoint.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\Joints\b2RopeJoint.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\Joints\b2WeldJoint.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Dynamics\Joints\b2WheelJoint.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Rope\b2Rope.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Box2D.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Collision\b2BroadPhase.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Collision\b2Collision.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Collision\b2Distance.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Collision\b2DynamicTree.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Collision\b2TimeOfImpact.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Collision\Shapes\b2ChainShape.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Collision\Shapes\b2CircleShape.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Collision\Shapes\b2EdgeShape.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Collision\Shapes\b2PolygonShape.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\box2d\Box2D\Collision\Shapes\b2Shape.h">
+      <Filter>external\box2d</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\Box2DDebug.h" />
+    <ClInclude Include="blib\Color.h" />
+    <ClInclude Include="blib\Math.h" />
+    <ClInclude Include="blib\linq.h" />
+    <ClInclude Include="blib\SpriteSheet.h" />
+    <ClInclude Include="blib\ParticleSystem.h" />
+    <ClInclude Include="blib\JoyState.h" />
+    <ClInclude Include="blib\drivers\joystick\Driver.h">
+      <Filter>drivers\joystick</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\drivers\joystick\WinMM.h">
+      <Filter>drivers\joystick</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\platform\win32\config.h">
+      <Filter>platform\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\platform\win32\window.h">
+      <Filter>platform\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\config.h" />
+    <ClInclude Include="blib\IWindow.h" />
+    <ClInclude Include="blib\drivers\joystick\DirectInput.h">
+      <Filter>drivers\joystick</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\wm\Menu.h">
+      <Filter>wm</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\wm\MenuItem.h">
+      <Filter>wm</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\wm\SubMenuMenuItem.h">
+      <Filter>wm</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\wm\ToggleMenuItem.h">
+      <Filter>wm</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\BackgroundTask.h" />
+    <ClInclude Include="blib\platform\win32\Registry.h">
+      <Filter>platform\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\Allocator.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\ListAllocator.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\wm\ActionMenuItem.h">
+      <Filter>wm</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\Shapes.h" />
+    <ClInclude Include="blib\math\HermiteCurve.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\math\ArcPath.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\math\BiArc.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\math\Triangle.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\math\AABB.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\Tree.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\AnimatableSprite.h" />
+    <ClInclude Include="blib\gl\direct\ResourceManager.h">
+      <Filter>gl\direct</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\math\Quad.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\util\stb_image_create.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\wm\KeyboardFocusable.h">
+      <Filter>wm</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\wm\MouseClickable.h">
+      <Filter>wm</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\wm\widgets\BmlBox.h">
+      <Filter>wm\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\wm\widgets\TreeView.h">
+      <Filter>wm\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\json.h" />
+    <ClInclude Include="blib\StaticModel.h" />
+    <ClInclude Include="blib\util\net.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="blib\Resource.h" />
+    <ClInclude Include="blib\SkelAnimatedModel.h" />
+    <ClInclude Include="blib\Material.h" />
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\BroadPhaseCollision\b3BroadphaseCallback.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\BroadPhaseCollision\b3DynamicBvh.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\BroadPhaseCollision\b3DynamicBvhBroadphase.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\BroadPhaseCollision\b3OverlappingPair.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\BroadPhaseCollision\b3OverlappingPairCache.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\BroadPhaseCollision\shared\b3Aabb.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\b3Config.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\b3Contact4.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\b3ConvexUtility.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\b3CpuNarrowPhase.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\b3RaycastInfo.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\b3RigidBodyCL.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\shared\b3BvhSubtreeInfoData.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\shared\b3BvhTraversal.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\shared\b3ClipFaces.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\shared\b3Collidable.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\shared\b3Contact4Data.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\shared\b3ContactConvexConvexSAT.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\shared\b3ContactSphereSphere.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\shared\b3ConvexPolyhedronData.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\shared\b3FindConcaveSatAxis.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\shared\b3FindSeparatingAxis.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\shared\b3MprPenetration.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\shared\b3NewContactReduction.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\shared\b3QuantizedBvhNodeData.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\shared\b3ReduceContacts.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\shared\b3RigidBodyData.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\shared\b3UpdateAabbs.h">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\b3AlignedAllocator.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\b3AlignedObjectArray.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\b3CommandLineArgs.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\b3FileUtils.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\b3HashMap.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\b3Logging.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\b3Matrix3x3.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\b3MinMax.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\b3PoolAllocator.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\b3QuadWord.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\b3Quaternion.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\b3Random.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\b3Scalar.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\b3StackAlloc.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\b3Transform.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\b3TransformUtil.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\b3Vector3.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\shared\b3Float4.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\shared\b3Int2.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\shared\b3Int4.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\shared\b3Mat3x3.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\shared\b3PlatformDefinitions.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Common\shared\b3Quat.h">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Dynamics\b3CpuRigidBodyPipeline.h">
+      <Filter>external\bullet\Bullet3Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Dynamics\ConstraintSolver\b3ContactSolverInfo.h">
+      <Filter>external\bullet\Bullet3Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Dynamics\ConstraintSolver\b3FixedConstraint.h">
+      <Filter>external\bullet\Bullet3Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Dynamics\ConstraintSolver\b3Generic6DofConstraint.h">
+      <Filter>external\bullet\Bullet3Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Dynamics\ConstraintSolver\b3JacobianEntry.h">
+      <Filter>external\bullet\Bullet3Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Dynamics\ConstraintSolver\b3PgsJacobiSolver.h">
+      <Filter>external\bullet\Bullet3Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Dynamics\ConstraintSolver\b3Point2PointConstraint.h">
+      <Filter>external\bullet\Bullet3Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Dynamics\ConstraintSolver\b3SolverBody.h">
+      <Filter>external\bullet\Bullet3Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Dynamics\ConstraintSolver\b3SolverConstraint.h">
+      <Filter>external\bullet\Bullet3Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Dynamics\ConstraintSolver\b3TypedConstraint.h">
+      <Filter>external\bullet\Bullet3Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Dynamics\shared\b3ContactConstraint4.h">
+      <Filter>external\bullet\Bullet3Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Dynamics\shared\b3ConvertConstraint4.h">
+      <Filter>external\bullet\Bullet3Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Dynamics\shared\b3Inertia.h">
+      <Filter>external\bullet\Bullet3Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Dynamics\shared\b3IntegrateTransforms.h">
+      <Filter>external\bullet\Bullet3Dynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Geometry\b3AabbUtil.h">
+      <Filter>external\bullet\Bullet3Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Geometry\b3ConvexHullComputer.h">
+      <Filter>external\bullet\Bullet3Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Geometry\b3GeometryUtil.h">
+      <Filter>external\bullet\Bullet3Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\Bullet3Geometry\b3GrahamScan2dConvexHull.h">
+      <Filter>external\bullet\Bullet3Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btAabbUtil2.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btAlignedAllocator.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btAlignedObjectArray.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btConvexHull.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btConvexHullComputer.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btCpuFeatureUtility.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btDefaultMotionState.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btGeometryUtil.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btGrahamScan2dConvexHull.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btHashMap.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btIDebugDraw.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btList.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btMatrix3x3.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btMatrixX.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btMinMax.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btMotionState.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btPolarDecomposition.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btPoolAllocator.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btQuadWord.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btQuaternion.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btQuickprof.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btRandom.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btScalar.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btSerializer.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btStackAlloc.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btTransform.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btTransformUtil.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\LinearMath\btVector3.h">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btAxisSweep3.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btBroadphaseInterface.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btBroadphaseProxy.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btCollisionAlgorithm.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btDbvt.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btDbvtBroadphase.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btDispatcher.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btMultiSapBroadphase.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btOverlappingPairCache.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btOverlappingPairCallback.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btQuantizedBvh.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btSimpleBroadphase.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btActivatingCollisionAlgorithm.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btBox2dBox2dCollisionAlgorithm.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btBoxBoxCollisionAlgorithm.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btBoxBoxDetector.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btCollisionConfiguration.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btCollisionCreateFunc.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btCollisionDispatcher.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btCollisionObject.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btCollisionObjectWrapper.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btCollisionWorld.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btCollisionWorldImporter.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btCompoundCollisionAlgorithm.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btCompoundCompoundCollisionAlgorithm.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btConvex2dConvex2dAlgorithm.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btConvexConcaveCollisionAlgorithm.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btConvexConvexAlgorithm.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btConvexPlaneCollisionAlgorithm.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btDefaultCollisionConfiguration.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btEmptyCollisionAlgorithm.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btGhostObject.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btHashedSimplePairCache.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btInternalEdgeUtility.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btManifoldResult.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btSimulationIslandManager.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btSphereBoxCollisionAlgorithm.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btSphereSphereCollisionAlgorithm.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btSphereTriangleCollisionAlgorithm.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btUnionFind.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionDispatch\SphereTriangleDetector.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btBox2dShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btBoxShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btBvhTriangleMeshShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btCapsuleShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btCollisionMargin.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btCollisionShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btCompoundShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btConcaveShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btConeShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btConvex2dShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btConvexHullShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btConvexInternalShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btConvexPointCloudShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btConvexPolyhedron.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btConvexShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btConvexTriangleMeshShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btCylinderShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btEmptyShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btHeightfieldTerrainShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btMaterial.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btMinkowskiSumShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btMultimaterialTriangleMeshShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btMultiSphereShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btOptimizedBvh.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btPolyhedralConvexShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btScaledBvhTriangleMeshShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btShapeHull.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btSphereShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btStaticPlaneShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btStridingMeshInterface.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btTetrahedronShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btTriangleBuffer.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btTriangleCallback.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btTriangleIndexVertexArray.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btTriangleIndexVertexMaterialArray.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btTriangleInfoMap.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btTriangleMesh.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btTriangleMeshShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btTriangleShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\CollisionShapes\btUniformScalingShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\btBoxCollision.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\btClipPolygon.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\btCompoundFromGimpact.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\btContactProcessing.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\btGenericPoolAllocator.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\btGeometryOperations.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\btGImpactBvh.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\btGImpactCollisionAlgorithm.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\btGImpactMassUtil.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\btGImpactQuantizedBvh.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\btGImpactShape.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\btQuantization.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\btTriangleShapeEx.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\gim_array.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\gim_basic_geometry_operations.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\gim_bitset.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\gim_box_collision.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\gim_box_set.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\gim_clip_polygon.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\gim_contact.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\gim_geometry.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\gim_geom_types.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\gim_hash_table.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\gim_linear_math.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\gim_math.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\gim_memory.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\gim_radixsort.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\Gimpact\gim_tri_collision.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btComputeGjkEpaPenetration.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btContinuousConvexCollision.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btConvexCast.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btConvexPenetrationDepthSolver.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btDiscreteCollisionDetectorInterface.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btGjkCollisionDescription.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btGjkConvexCast.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btGjkEpa2.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btGjkEpa3.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btGjkEpaPenetrationDepthSolver.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btGjkPairDetector.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btManifoldPoint.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btMinkowskiPenetrationDepthSolver.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btMprPenetration.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btPersistentManifold.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btPointCollector.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btPolyhedralContactClipping.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btRaycastCallback.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btSimplexSolverInterface.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btSubSimplexConvexCast.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btVoronoiSimplexSolver.h">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\Character\btCharacterControllerInterface.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\Character\btKinematicCharacterController.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btConeTwistConstraint.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btConstraintSolver.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btContactConstraint.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btContactSolverInfo.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btFixedConstraint.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btGearConstraint.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btGeneric6DofConstraint.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btGeneric6DofSpring2Constraint.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btGeneric6DofSpringConstraint.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btHinge2Constraint.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btHingeConstraint.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btJacobianEntry.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btNNCGConstraintSolver.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btPoint2PointConstraint.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btSequentialImpulseConstraintSolver.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btSliderConstraint.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btSolve2LinearConstraint.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btSolverBody.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btSolverConstraint.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btTypedConstraint.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btUniversalConstraint.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\Dynamics\btActionInterface.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\Dynamics\btDiscreteDynamicsWorld.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\Dynamics\btDynamicsWorld.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\Dynamics\btRigidBody.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\Dynamics\btSimpleDynamicsWorld.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\Featherstone\btMultiBody.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\Featherstone\btMultiBodyConstraint.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\Featherstone\btMultiBodyConstraintSolver.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\Featherstone\btMultiBodyDynamicsWorld.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\Featherstone\btMultiBodyJointLimitConstraint.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\Featherstone\btMultiBodyJointMotor.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\Featherstone\btMultiBodyLink.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\Featherstone\btMultiBodyLinkCollider.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\Featherstone\btMultiBodyPoint2Point.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\Featherstone\btMultiBodySolverConstraint.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\MLCPSolvers\btDantzigLCP.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\MLCPSolvers\btDantzigSolver.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\MLCPSolvers\btLemkeAlgorithm.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\MLCPSolvers\btLemkeSolver.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\MLCPSolvers\btMLCPSolver.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\MLCPSolvers\btMLCPSolverInterface.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\MLCPSolvers\btPATHSolver.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\MLCPSolvers\btSolveProjectedGaussSeidel.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\Vehicle\btRaycastVehicle.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\Vehicle\btVehicleRaycaster.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+    <ClInclude Include="externals\bullet3\src\BulletDynamics\Vehicle\btWheelInfo.h">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="blib\Window.cpp" />
+    <ClCompile Include="blib\Animation.cpp" />
+    <ClCompile Include="blib\App.cpp" />
+    <ClCompile Include="blib\Font.cpp" />
+    <ClCompile Include="blib\LineBatch.cpp" />
+    <ClCompile Include="blib\Renderer.cpp" />
+    <ClCompile Include="blib\RenderState.cpp" />
+    <ClCompile Include="blib\Shader.cpp" />
+    <ClCompile Include="blib\SpriteBatch.cpp" />
+    <ClCompile Include="blib\Util.cpp" />
+    <ClCompile Include="blib\gl\FBO.cpp">
+      <Filter>gl</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\gl\GlResizeRegister.cpp">
+      <Filter>gl</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\gl\Renderer.cpp">
+      <Filter>gl</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\gl\Shader.cpp">
+      <Filter>gl</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\gl\Texture.cpp">
+      <Filter>gl</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\gl\Vertex.cpp">
+      <Filter>gl</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\gl\Window.cpp">
+      <Filter>gl</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\audio\AudioManagerWindows.cpp">
+      <Filter>audio</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\math\Line.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\math\Polygon.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\math\Random.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\math\Rectangle.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\util\FileSystem.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\util\Log.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\util\Mutex.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\util\Profiler.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\util\Semaphore.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\util\Signal.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\util\stb_image.c">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\util\Stream.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\util\StreamInFile.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\util\Thread.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\wm\WM.cpp">
+      <Filter>wm</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\wm\Window.cpp">
+      <Filter>wm</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\wm\widgets\button.cpp">
+      <Filter>wm\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\wm\widgets\ContainerWidget.cpp">
+      <Filter>wm\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\wm\widgets\Image.cpp">
+      <Filter>wm\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\wm\widgets\Label.cpp">
+      <Filter>wm\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\wm\widgets\list.cpp">
+      <Filter>wm\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\wm\widgets\Panel.cpp">
+      <Filter>wm\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\wm\widgets\ScrollPanel.cpp">
+      <Filter>wm\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\wm\widgets\textbox.cpp">
+      <Filter>wm\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\wm\widgets\Widget.cpp">
+      <Filter>wm\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\poly2tri\common\shapes.cc">
+      <Filter>external</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\poly2tri\sweep\advancing_front.cc">
+      <Filter>external</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\poly2tri\sweep\cdt.cc">
+      <Filter>external</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\poly2tri\sweep\sweep.cc">
+      <Filter>external</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\poly2tri\sweep\sweep_context.cc">
+      <Filter>external</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\clipper\clipper.cpp">
+      <Filter>external</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\util\StreamIn.cpp" />
+    <ClCompile Include="blib\gl\ResourceManager.cpp">
+      <Filter>gl</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\gl\TextureMap.cpp">
+      <Filter>gl</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Common\b2BlockAllocator.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Common\b2Draw.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Common\b2Math.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Common\b2Settings.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Common\b2StackAllocator.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Common\b2Timer.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\b2Body.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\b2ContactManager.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\b2Fixture.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\b2Island.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\b2World.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\b2WorldCallbacks.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\Contacts\b2ChainAndCircleContact.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\Contacts\b2ChainAndPolygonContact.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\Contacts\b2CircleContact.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\Contacts\b2Contact.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\Contacts\b2ContactSolver.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\Contacts\b2EdgeAndCircleContact.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\Contacts\b2EdgeAndPolygonContact.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\Contacts\b2PolygonAndCircleContact.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\Contacts\b2PolygonContact.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\Joints\b2DistanceJoint.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\Joints\b2FrictionJoint.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\Joints\b2GearJoint.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\Joints\b2Joint.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\Joints\b2MouseJoint.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\Joints\b2PrismaticJoint.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\Joints\b2PulleyJoint.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\Joints\b2RevoluteJoint.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\Joints\b2RopeJoint.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\Joints\b2WeldJoint.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Dynamics\Joints\b2WheelJoint.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Rope\b2Rope.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Collision\b2BroadPhase.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Collision\b2CollideCircle.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Collision\b2CollideEdge.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Collision\b2CollidePolygon.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Collision\b2Collision.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Collision\b2Distance.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Collision\b2DynamicTree.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Collision\b2TimeOfImpact.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Collision\Shapes\b2ChainShape.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Collision\Shapes\b2CircleShape.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Collision\Shapes\b2EdgeShape.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\box2d\Box2D\Collision\Shapes\b2PolygonShape.cpp">
+      <Filter>external\box2d</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\Box2DDebug.cpp" />
+    <ClCompile Include="blib\Color.cpp" />
+    <ClCompile Include="blib\Math.cpp" />
+    <ClCompile Include="blib\linq.cpp" />
+    <ClCompile Include="blib\SpriteSheet.cpp" />
+    <ClCompile Include="blib\ParticleSystem.cpp" />
+    <ClCompile Include="blib\drivers\joystick\WinMM.cpp">
+      <Filter>drivers\joystick</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\platform\win32\window.cpp">
+      <Filter>platform\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\IWindow.cpp" />
+    <ClCompile Include="blib\drivers\joystick\DirectInput.cpp">
+      <Filter>drivers\joystick</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\wm\Menu.cpp">
+      <Filter>wm</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\wm\MenuItem.cpp">
+      <Filter>wm</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\BackgroundTask.cpp" />
+    <ClCompile Include="blib\platform\win32\Registry.cpp">
+      <Filter>platform\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\wm\SubMenuMenuItem.cpp">
+      <Filter>wm</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\KeyListener.cpp" />
+    <ClCompile Include="blib\Shapes.cpp" />
+    <ClCompile Include="blib\math\HermiteCurve.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\math\ArcPath.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\math\BiArc.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\math\Triangle.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\math\AABB.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\math\Ray.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\math\Plane.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\util\StreamOut.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\AnimatableSprite.cpp" />
+    <ClCompile Include="blib\gl\direct\ResourceManager.cpp">
+      <Filter>gl\direct</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\math\Quad.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\util\stb_image_create.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\util\ListAllocator.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\wm\KeyboardFocusable.cpp">
+      <Filter>wm</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\wm\MouseClickable.cpp">
+      <Filter>wm</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\wm\widgets\BmlBox.cpp">
+      <Filter>wm\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\wm\widgets\TreeView.cpp">
+      <Filter>wm\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\json.cpp" />
+    <ClCompile Include="blib\StaticModel.cpp" />
+    <ClCompile Include="blib\util\net.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="blib\ResourceManager.cpp" />
+    <ClCompile Include="blib\SkelAnimatedModel.cpp" />
+    <ClCompile Include="externals\bullet3\src\Bullet3Collision\BroadPhaseCollision\b3DynamicBvh.cpp">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\Bullet3Collision\BroadPhaseCollision\b3DynamicBvhBroadphase.cpp">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\Bullet3Collision\BroadPhaseCollision\b3OverlappingPairCache.cpp">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\b3ConvexUtility.cpp">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\Bullet3Collision\NarrowPhaseCollision\b3CpuNarrowPhase.cpp">
+      <Filter>external\bullet\Bullet3Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\Bullet3Common\b3AlignedAllocator.cpp">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\Bullet3Common\b3Logging.cpp">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\Bullet3Common\b3Vector3.cpp">
+      <Filter>external\bullet\Bullet3Common</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\Bullet3Dynamics\b3CpuRigidBodyPipeline.cpp">
+      <Filter>external\bullet\Bullet3Dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\Bullet3Dynamics\ConstraintSolver\b3FixedConstraint.cpp">
+      <Filter>external\bullet\Bullet3Dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\Bullet3Dynamics\ConstraintSolver\b3Generic6DofConstraint.cpp">
+      <Filter>external\bullet\Bullet3Dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\Bullet3Dynamics\ConstraintSolver\b3PgsJacobiSolver.cpp">
+      <Filter>external\bullet\Bullet3Dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\Bullet3Dynamics\ConstraintSolver\b3Point2PointConstraint.cpp">
+      <Filter>external\bullet\Bullet3Dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\Bullet3Dynamics\ConstraintSolver\b3TypedConstraint.cpp">
+      <Filter>external\bullet\Bullet3Dynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\Bullet3Geometry\b3ConvexHullComputer.cpp">
+      <Filter>external\bullet\Bullet3Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\Bullet3Geometry\b3GeometryUtil.cpp">
+      <Filter>external\bullet\Bullet3Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\LinearMath\btAlignedAllocator.cpp">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\LinearMath\btConvexHull.cpp">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\LinearMath\btConvexHullComputer.cpp">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\LinearMath\btGeometryUtil.cpp">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\LinearMath\btPolarDecomposition.cpp">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\LinearMath\btQuickprof.cpp">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\LinearMath\btSerializer.cpp">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\LinearMath\btVector3.cpp">
+      <Filter>external\bullet\LinearMath</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btAxisSweep3.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btBroadphaseProxy.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btCollisionAlgorithm.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btDbvt.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btDbvtBroadphase.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btDispatcher.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btMultiSapBroadphase.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btOverlappingPairCache.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btQuantizedBvh.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\BroadphaseCollision\btSimpleBroadphase.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btActivatingCollisionAlgorithm.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btBox2dBox2dCollisionAlgorithm.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btBoxBoxCollisionAlgorithm.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btBoxBoxDetector.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btCollisionDispatcher.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btCollisionObject.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btCollisionWorld.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btCollisionWorldImporter.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btCompoundCollisionAlgorithm.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btCompoundCompoundCollisionAlgorithm.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btConvex2dConvex2dAlgorithm.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btConvexConcaveCollisionAlgorithm.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btConvexConvexAlgorithm.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btConvexPlaneCollisionAlgorithm.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btDefaultCollisionConfiguration.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btEmptyCollisionAlgorithm.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btGhostObject.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btHashedSimplePairCache.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btInternalEdgeUtility.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btManifoldResult.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btSimulationIslandManager.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btSphereBoxCollisionAlgorithm.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btSphereSphereCollisionAlgorithm.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btSphereTriangleCollisionAlgorithm.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\btUnionFind.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionDispatch\SphereTriangleDetector.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btBox2dShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btBoxShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btBvhTriangleMeshShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btCapsuleShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btCollisionShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btCompoundShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btConcaveShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btConeShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btConvex2dShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btConvexHullShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btConvexInternalShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btConvexPointCloudShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btConvexPolyhedron.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btConvexShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btConvexTriangleMeshShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btCylinderShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btEmptyShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btHeightfieldTerrainShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btMinkowskiSumShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btMultimaterialTriangleMeshShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btMultiSphereShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btOptimizedBvh.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btPolyhedralConvexShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btScaledBvhTriangleMeshShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btShapeHull.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btSphereShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btStaticPlaneShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btStridingMeshInterface.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btTetrahedronShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btTriangleBuffer.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btTriangleCallback.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btTriangleIndexVertexArray.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btTriangleIndexVertexMaterialArray.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btTriangleMesh.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btTriangleMeshShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\CollisionShapes\btUniformScalingShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\Gimpact\btContactProcessing.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\Gimpact\btGenericPoolAllocator.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\Gimpact\btGImpactBvh.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\Gimpact\btGImpactCollisionAlgorithm.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\Gimpact\btGImpactQuantizedBvh.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\Gimpact\btGImpactShape.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\Gimpact\btTriangleShapeEx.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\Gimpact\gim_box_set.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\Gimpact\gim_contact.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\Gimpact\gim_memory.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\Gimpact\gim_tri_collision.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btContinuousConvexCollision.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btConvexCast.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btGjkConvexCast.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btGjkEpa2.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btGjkEpaPenetrationDepthSolver.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btGjkPairDetector.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btMinkowskiPenetrationDepthSolver.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btPersistentManifold.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btPolyhedralContactClipping.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btRaycastCallback.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btSubSimplexConvexCast.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletCollision\NarrowPhaseCollision\btVoronoiSimplexSolver.cpp">
+      <Filter>external\bullet\BulletCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\Character\btKinematicCharacterController.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btConeTwistConstraint.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btContactConstraint.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btFixedConstraint.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btGearConstraint.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btGeneric6DofConstraint.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btGeneric6DofSpring2Constraint.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btGeneric6DofSpringConstraint.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btHinge2Constraint.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btHingeConstraint.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btNNCGConstraintSolver.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btPoint2PointConstraint.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btSequentialImpulseConstraintSolver.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btSliderConstraint.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btSolve2LinearConstraint.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btTypedConstraint.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\ConstraintSolver\btUniversalConstraint.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\Dynamics\btDiscreteDynamicsWorld.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\Dynamics\btRigidBody.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\Dynamics\btSimpleDynamicsWorld.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\Featherstone\btMultiBody.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\Featherstone\btMultiBodyConstraint.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\Featherstone\btMultiBodyConstraintSolver.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\Featherstone\btMultiBodyDynamicsWorld.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\Featherstone\btMultiBodyJointLimitConstraint.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\Featherstone\btMultiBodyJointMotor.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\Featherstone\btMultiBodyPoint2Point.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\MLCPSolvers\btDantzigLCP.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\MLCPSolvers\btLemkeAlgorithm.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\MLCPSolvers\btMLCPSolver.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\Vehicle\btRaycastVehicle.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="externals\bullet3\src\BulletDynamics\Vehicle\btWheelInfo.cpp">
+      <Filter>external\bullet\BulletDynamics</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="externals\glew\doc\credits.html">
+      <Filter>external</Filter>
+    </None>
+  </ItemGroup>
+</Project>
