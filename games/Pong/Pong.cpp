@@ -173,7 +173,7 @@ float Pong::calculateAngle(glm::vec2 vector1, glm::vec2 vector2, glm::vec2 vecto
 	return angle;
 }
 
-void Pong::rotatePoint(glm::vec2 rotatePoint, float angle, glm::vec2 point)
+glm::vec2 Pong::rotatePoint(glm::vec2 rotatePoint, float angle, glm::vec2 point)
 {
 	float s = sin(angle);
 	float c = cos(angle);
@@ -187,8 +187,10 @@ void Pong::rotatePoint(glm::vec2 rotatePoint, float angle, glm::vec2 point)
 	float ynew = point.x * s + point.y * c;
 
 	// translate point back:
-	point.x = xnew + rotatePoint.x;
-	point.y = ynew + rotatePoint.y;
+	
+
+	return glm::vec2(xnew + rotatePoint.x, ynew + rotatePoint.y);
+
 
 }
 
@@ -200,12 +202,12 @@ bool Pong::checkCollision(PongPlayer player)
 	glm::vec2 p3 = glm::vec2(player.position.x + 25, player.position.y + 100);
 	glm::vec2 p2 = glm::vec2(player.position.x - 25, player.position.y + 100);
 
-	float rotation = M_PI * player.rotation;
+	float rotation = player.rotation;
 	
-	rotatePoint(player.position, rotation, p1);
-	rotatePoint(player.position, rotation, p2);
-	rotatePoint(player.position, rotation, p3);
-	rotatePoint(player.position, rotation, p4);
+	p1= rotatePoint(player.position, rotation, p1);
+	p2 = rotatePoint(player.position, rotation, p2);
+	p3 = rotatePoint(player.position, rotation, p3);
+	p4 = rotatePoint(player.position, rotation, p4);
 
 	//ball radius 25
 	
