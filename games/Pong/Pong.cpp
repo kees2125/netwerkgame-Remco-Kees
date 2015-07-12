@@ -200,7 +200,7 @@ bool Pong::checkCollision(PongPlayer player)
 	glm::vec2 p3 = glm::vec2(player.position.x + 25, player.position.y + 100);
 	glm::vec2 p2 = glm::vec2(player.position.x - 25, player.position.y + 100);
 
-	float rotation = player.rotation;
+	float rotation = M_PI * player.rotation;
 	
 	rotatePoint(player.position, rotation, p1);
 	rotatePoint(player.position, rotation, p2);
@@ -215,7 +215,7 @@ bool Pong::checkCollision(PongPlayer player)
 			int temp = 0;
 			if (abs(p1.x - p2.x) > abs(p1.y - p2.y))
 			{
-				if ((p1.x - p2.x) > 0)
+				if ((p2.x - p1.x) > 0)
 				{
 					float xTotal = (p1.x - p2.x);
 					int yToX = 0;
@@ -223,7 +223,6 @@ bool Pong::checkCollision(PongPlayer player)
 					int translation = p1.y - (p1.x *yToX);
 					for (int i = p1.x; i < p2.x; i++)
 					{
-
 						temp = i*yToX + translation;
 						if (calculateDistance(glm::vec2(i, temp), gameball->coordinates[0]) <= gameball->Radius)
 						{
@@ -244,13 +243,12 @@ bool Pong::checkCollision(PongPlayer player)
 						{
 							return true;
 						}
-
 					}
 				}
 			}
 			else
 			{
-				if ((p1.y - p2.y) > 0)
+				if ((p2.y - p1.y) > 0)
 				{
 					float yTotal = (p1.y - p2.y);
 					int xToY = 0;
@@ -258,7 +256,6 @@ bool Pong::checkCollision(PongPlayer player)
 					int translation = p1.x - (p1.y *xToY);
 					for (int i = p1.y; i < p2.y; i++)
 					{
-
 						temp = i*xToY + translation;
 						if (calculateDistance(glm::vec2(temp, i), gameball->coordinates[0]) <= gameball->Radius)
 						{
@@ -279,7 +276,6 @@ bool Pong::checkCollision(PongPlayer player)
 						{
 							return true;
 						}
-
 					}
 				}
 			}
