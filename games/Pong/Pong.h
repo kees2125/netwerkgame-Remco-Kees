@@ -17,8 +17,8 @@ class Pong : public ScoreGame<PongPlayer>
 	double rotation;
 	int turningFactor;
 	float speed;
-
-	std::vector<glm::vec2> ball;
+	
+	
 
 public:
 	virtual std::pair<int, int> getPlayerCount() { return std::pair<int, int>(1, 100); }
@@ -29,11 +29,25 @@ public:
 	virtual void update(float elapsedTime);
 	virtual void draw();
 	virtual blib::Texture* getTitleImage();
+	struct ball{
+		std::vector<glm::vec2> coordinates;
+		float Radius;
+		ball(float x, float y, float radius)
+		{
+			glm::vec2 v(x, y);
+			coordinates.push_back(v);
+			Radius = radius;
+		}
 
-private:
-	float checkCollision(PongPlayer player);
+	};
+
+
+	bool checkCollision(PongPlayer player);
 	float calculateAngle(glm::vec2 vector1, glm::vec2 vector2, glm::vec2 vector0);
-	glm::vec2 rotatePoint(glm::vec2 rotatePoint,float angle,glm::vec2 point);
+	void rotatePoint(glm::vec2 rotatePoint, float angle, glm::vec2 point);
+	
+
+
 };
 
 

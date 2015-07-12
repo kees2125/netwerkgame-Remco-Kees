@@ -13,6 +13,7 @@
 
 #include <glm/gtc/matrix_transform.hpp>
 
+Pong::ball *gameball;
 GameBase* getGame()
 {
 	return new Pong();
@@ -41,7 +42,7 @@ void Pong::start(Difficulty difficulty)
 	positive = false;
 	speed = 2;
 	turningFactor = 0;
-	ball.clear();
+	//ball.clear();
 	rotation = rand();
 
 	maxPlayerScore = 5;
@@ -52,8 +53,9 @@ void Pong::start(Difficulty difficulty)
 		p->rotation = (float)M_PI / (float)players.size()*2 * turningFactor;
 		turningFactor++;
 	}
-	glm::vec2 v(1920/2, 1080/2);
-	ball.push_back(v);
+	//glm::vec2 v(1920/2, 1080/2);
+	//ball.push_back(v);
+	gameball = new Pong::ball(1920 / 2, 1080 / 2, 25);
 }
 
 void Pong::update(float elapsedTime)
@@ -61,10 +63,10 @@ void Pong::update(float elapsedTime)
 	blib::math::Rectangle screenRect(0, 0, 1920, 1080);
 	for (auto p : players)
 	{
-		if (!screenRect.contains(ball[0]))
+		if (!screenRect.contains(gameball->coordinates[0]))
 		{
 			p->score += 1;
-			ball[0] = glm::vec2(1920 / 2, 1080 / 2);
+			gameball->coordinates[0] = glm::vec2(1920 / 2, 1080 / 2);
 			speed = 2;
 			rotation = rand();
 		}
@@ -119,18 +121,20 @@ void Pong::update(float elapsedTime)
 		
 		glm::vec2 suckPos = p->position + 50.0f*blib::util::fromAngle(p->rotation);
 		
-		if (blib::linq::any(ball, [p](glm::vec2 t) { return glm::length(t - p->position) < 64; }))
+	/*	if (blib::linq::any(gameball->coordinates, [p](glm::vec2 t) { return glm::length(t - p->position) < 64; }))
 		{
 			speed += 0.5;
 			rotation -= 1;
-		}
-		if (checkCollision(p) > 1)
+		}*/
+		if (checkCollision(*p))
 		{
-			ball[0].x -= 20 * elapsedTime;
+			//gameball->coordinates[0].x -= 20 * elapsedTime;
+			speed += 0.5;
+			rotation -= 1;
 		}
 		else
 		{
-			ball[0] += speed * 20.0f * blib::util::fromAngle(rotation) * elapsedTime;
+			gameball->coordinates[0] += speed * 20.0f * blib::util::fromAngle(rotation) * elapsedTime;
 		}
 	}
 }
@@ -141,7 +145,7 @@ void Pong::draw()
 	spriteBatch->begin(settings->scaleMatrix);
 	spriteBatch->draw(backSprite, glm::mat4());
 
-	for (auto t : ball) { spriteBatch->draw(ballSprite, blib::math::easyMatrix(t), ballSprite->center); };
+	for (auto t : gameball->coordinates) { spriteBatch->draw(ballSprite, blib::math::easyMatrix(t), ballSprite->center); };
 	for (auto p : players) { spriteBatch->draw(playerSprite, glm::rotate(glm::translate(glm::mat4(), glm::vec3(p->position, 0)), glm::degrees(p->rotation), glm::vec3(0, 0, 1)), playerSprite->center, blib::math::Rectangle(0, 0, 1, 1), p->participant->color); }
 	for (size_t i = 0; i < players.size(); i++)
 		spriteBatch->draw(font, blib::util::toString(players[i]->score), blib::math::easyMatrix(glm::vec2(10, 64 * i), 0, 1), players[i]->participant->color);
@@ -149,23 +153,11 @@ void Pong::draw()
 	spriteBatch->end();
 }
 
-float Pong::checkCollision(PongPlayer player)
+float calculateDistance(glm::vec2 point1, glm::vec2 point2)
 {
-	float angle1 = 2 * M_PI;
-	float angle2 = angle1;
-	glm::vec2 p1 = glm::vec2(player.position.x-25,player.position.y-100);
-	glm::vec2 p2 = glm::vec2(player.position.x + 25, player.position.y - 100);
-	glm::vec2 p3 = glm::vec2(player.position.x + 25, player.position.y + 100);
-	glm::vec2 p4 = glm::vec2(player.position.x - 25, player.position.y + 100);
-	
-	rotatePoint(player.position, player.rotation, p1);
-	rotatePoint(player.position, player.rotation, p2);
-	rotatePoint(player.position, player.rotation, p3);
-	rotatePoint(player.position, player.rotation, p4);
-
-
-	//width 50 and heigth 200
-	
+	float temp1 = pow(point1.x - point2.x, 2);
+	float temp2 = pow(point1.y - point2.y, 2);
+	return sqrt(temp1 + temp2);
 }
 
 float Pong::calculateAngle(glm::vec2 vector1, glm::vec2 vector2, glm::vec2 vector0) // function calulates angel between 2 lines were vector0 is your origen 0,0 x,y 
@@ -181,7 +173,7 @@ float Pong::calculateAngle(glm::vec2 vector1, glm::vec2 vector2, glm::vec2 vecto
 	return angle;
 }
 
-glm::vec2 rotatePoint(glm::vec2 rotatePoint, float angle, glm::vec2 point)
+void Pong::rotatePoint(glm::vec2 rotatePoint, float angle, glm::vec2 point)
 {
 	float s = sin(angle);
 	float c = cos(angle);
@@ -195,10 +187,112 @@ glm::vec2 rotatePoint(glm::vec2 rotatePoint, float angle, glm::vec2 point)
 	float ynew = point.x * s + point.y * c;
 
 	// translate point back:
-	point.x = xnew + cx;
-	point.y = ynew + cy;
-	return point;
+	point.x = xnew + rotatePoint.x;
+	point.y = ynew + rotatePoint.y;
+
 }
+
+bool Pong::checkCollision(PongPlayer player)
+{
+
+	glm::vec2 p1 = glm::vec2(player.position.x-25,player.position.y-100);
+	glm::vec2 p4 = glm::vec2(player.position.x + 25, player.position.y - 100);
+	glm::vec2 p3 = glm::vec2(player.position.x + 25, player.position.y + 100);
+	glm::vec2 p2 = glm::vec2(player.position.x - 25, player.position.y + 100);
+
+	float rotation = player.rotation;
+	
+	rotatePoint(player.position, rotation, p1);
+	rotatePoint(player.position, rotation, p2);
+	rotatePoint(player.position, rotation, p3);
+	rotatePoint(player.position, rotation, p4);
+
+	//ball radius 25
+	
+		for (int c = 0; c < 2; c++)
+		{
+			if (c = 1){ p1 = p3; p2 = p4; }
+			int temp = 0;
+			if (abs(p1.x - p2.x) > abs(p1.y - p2.y))
+			{
+				if ((p1.x - p2.x) > 0)
+				{
+					float xTotal = (p1.x - p2.x);
+					int yToX = 0;
+					if ((p1.y - p2.y) != 0){ yToX = xTotal / (p1.y - p2.y); }
+					int translation = p1.y - (p1.x *yToX);
+					for (int i = p1.x; i < p2.x; i++)
+					{
+
+						temp = i*yToX + translation;
+						if (calculateDistance(glm::vec2(i, temp), gameball->coordinates[0]) <= gameball->Radius)
+						{
+							return true;
+						}
+					}
+				}
+				else
+				{
+					float xTotal = (p2.x - p1.x);
+					int yToX = 0;
+					if ((p2.y - p1.y) != 0){ yToX = xTotal / (p2.y - p1.y); }
+					int translation = p2.y - (p2.x *yToX);
+					for (int i = p2.x; i < p1.x; i++)
+					{
+						temp = i*yToX + translation;
+						if (calculateDistance(glm::vec2(i, temp), gameball->coordinates[0]) <= gameball->Radius)
+						{
+							return true;
+						}
+
+					}
+				}
+			}
+			else
+			{
+				if ((p1.y - p2.y) > 0)
+				{
+					float yTotal = (p1.y - p2.y);
+					int xToY = 0;
+					if ((p1.x - p2.x) != 0){ xToY = yTotal / (p1.x - p2.x); }
+					int translation = p1.x - (p1.y *xToY);
+					for (int i = p1.y; i < p2.y; i++)
+					{
+
+						temp = i*xToY + translation;
+						if (calculateDistance(glm::vec2(temp, i), gameball->coordinates[0]) <= gameball->Radius)
+						{
+							return true;
+						}
+					}
+				}
+				else
+				{
+					float yTotal = (p1.y - p2.y);
+					int xToY = 0;
+					if ((p2.x - p1.x) != 0){ xToY = yTotal / (p2.x - p1.x); }
+					int translation = p2.x - (p2.y *xToY);
+					for (int i = p2.y; i < p1.y; i++)
+					{
+						temp = i*xToY + translation;
+						if (calculateDistance(glm::vec2(temp, i), gameball->coordinates[0]) <= gameball->Radius)
+						{
+							return true;
+						}
+
+					}
+				}
+			}
+		}
+		return false;
+}
+		
+
+
+
+
+
+
 
 blib::Texture* Pong::getTitleImage()
 {
