@@ -52,6 +52,8 @@ void Pong::start(Difficulty difficulty)
 	{
 		p->position = glm::vec2(1920 / 2, 1080 / 2) + 500.0f * blib::util::fromAngle(p->index / (float)players.size() * 2 * (float)M_PI);
 		p->rotation = (float)M_PI / (float)players.size()*2 * turningFactor;
+		glm::vec2 v = glm::vec2(1920 / 2, 1080 / 2) + 550.0f * blib::util::fromAngle(p->index / (float)players.size() * 2 * (float)M_PI);
+		walls.push_back(v);
 		turningFactor++;
 	}
 	//glm::vec2 v(1920/2, 1080/2);
@@ -64,13 +66,6 @@ void Pong::update(float elapsedTime)
 	blib::math::Rectangle screenRect(0, 0, 1920, 1080);
 	for (auto p : players)
 	{
-		if (!screenRect.contains(gameball->coordinates[0]))
-		{
-			p->score -= 1;
-			gameball->coordinates[0] = glm::vec2(1920 / 2, 1080 / 2);
-			speed = 2;
-			rotation = rand();
-		}
 		if (p->joystick.leftStick.y < 0)
 		{
 			glm::vec2 oldPosition = p->position;
@@ -141,6 +136,23 @@ void Pong::update(float elapsedTime)
 			gameball->coordinates[0] += speed * 20.0f * blib::util::fromAngle(rotation) * elapsedTime;
 		}
 	}
+	if (!screenRect.contains(gameball->coordinates[0]))
+	{
+		float distance = 10000;
+		int playerindex = 0;
+		for (auto p : players)
+		{
+			if (calculateDistance(gameball->coordinates[0], p->position) < distance)
+			{
+				distance = calculateDistance(gameball->coordinates[0], p->position);
+				playerindex = p->index;
+			}
+		}
+		players[playerindex]->score = -1;
+		gameball->coordinates[0] = glm::vec2(1920 / 2, 1080 / 2);
+		speed = 2;
+		rotation = rand();
+	}
 }
 
 
@@ -155,7 +167,7 @@ void Pong::draw()
 	{
 		if (p->score < 0)
 		{
-			spriteBatch->draw(wallSprite, glm::rotate(glm::translate(glm::mat4(), glm::vec3(p->position, 0)), glm::degrees(p->rotation), glm::vec3(0, 0, 1)), wallSprite->center, blib::math::Rectangle(0, 0, 1, 1), p->participant->color);
+			spriteBatch->draw(wallSprite, glm::rotate(glm::translate(glm::mat4(), glm::vec3(walls[p->index], 0)), glm::degrees(p->rotation), glm::vec3(0, 0, 1)), wallSprite->center, blib::math::Rectangle(0, 0, 1, 1), p->participant->color);
 		}
 		else
 		{
@@ -165,7 +177,7 @@ void Pong::draw()
 	spriteBatch->end();
 }
 
-float calculateDistance(glm::vec2 point1, glm::vec2 point2)
+float Pong::calculateDistance(glm::vec2 point1, glm::vec2 point2)
 {
 	float temp1 = pow(point1.x - point2.x, 2);
 	float temp2 = pow(point1.y - point2.y, 2);
