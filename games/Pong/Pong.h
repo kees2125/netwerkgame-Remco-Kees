@@ -11,6 +11,7 @@ class Pong : public ScoreGame<PongPlayer>
 	blib::Texture* backSprite;
 	blib::Texture* ballSprite;
 	blib::Texture* playerSprite;
+	blib::Texture* wallSprite;
 	blib::Font* font;
 
 	boolean positive;
@@ -29,6 +30,7 @@ public:
 	virtual void update(float elapsedTime);
 	virtual void draw();
 	virtual blib::Texture* getTitleImage();
+	glm::vec2 walls;
 	struct ball{
 		std::vector<glm::vec2> coordinates;
 		float Radius;

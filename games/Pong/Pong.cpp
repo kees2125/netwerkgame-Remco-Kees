@@ -34,6 +34,7 @@ void Pong::loadResources()
 	backSprite = resourceManager->getResource<blib::Texture>("assets/games/Pong/back.png");
 	playerSprite = resourceManager->getResource<blib::Texture>("assets/games/Pong/rectangle.png");
 	ballSprite = resourceManager->getResource<blib::Texture>("assets/games/Pong/Ball.png");
+	wallSprite = resourceManager->getResource<blib::Texture>("assets/games/Pong/wall.png");
 	font = resourceManager->getResource<blib::Font>("menu");
 }
 
@@ -45,7 +46,7 @@ void Pong::start(Difficulty difficulty)
 	//ball.clear();
 	rotation = rand();
 
-	maxPlayerScore = 5;
+	maxPlayerScore = 1;
 
 	for (auto p : players)
 	{
@@ -65,7 +66,7 @@ void Pong::update(float elapsedTime)
 	{
 		if (!screenRect.contains(gameball->coordinates[0]))
 		{
-			p->score += 1;
+			p->score -= 1;
 			gameball->coordinates[0] = glm::vec2(1920 / 2, 1080 / 2);
 			speed = 2;
 			rotation = rand();
@@ -129,6 +130,9 @@ void Pong::update(float elapsedTime)
 		if (checkCollision(*p))
 		{
 			//gameball->coordinates[0].x -= 20 * elapsedTime;
+			int iets = p->index;
+			char ietsanders = iets;
+			std::printf("" + ietsanders);
 			speed += 0.5;
 			rotation -= 1;
 		}
@@ -146,10 +150,18 @@ void Pong::draw()
 	spriteBatch->draw(backSprite, glm::mat4());
 
 	for (auto t : gameball->coordinates) { spriteBatch->draw(ballSprite, blib::math::easyMatrix(t), ballSprite->center); };
-	for (auto p : players) { spriteBatch->draw(playerSprite, glm::rotate(glm::translate(glm::mat4(), glm::vec3(p->position, 0)), glm::degrees(p->rotation), glm::vec3(0, 0, 1)), playerSprite->center, blib::math::Rectangle(0, 0, 1, 1), p->participant->color); }
-	for (size_t i = 0; i < players.size(); i++)
-		spriteBatch->draw(font, blib::util::toString(players[i]->score), blib::math::easyMatrix(glm::vec2(10, 64 * i), 0, 1), players[i]->participant->color);
 
+	for (auto p : players)
+	{
+		if (p->score < 0)
+		{
+			spriteBatch->draw(wallSprite, glm::rotate(glm::translate(glm::mat4(), glm::vec3(p->position, 0)), glm::degrees(p->rotation), glm::vec3(0, 0, 1)), wallSprite->center, blib::math::Rectangle(0, 0, 1, 1), p->participant->color);
+		}
+		else
+		{
+			spriteBatch->draw(playerSprite, glm::rotate(glm::translate(glm::mat4(), glm::vec3(p->position, 0)), glm::degrees(p->rotation), glm::vec3(0, 0, 1)), playerSprite->center, blib::math::Rectangle(0, 0, 1, 1), p->participant->color);
+		}
+	}
 	spriteBatch->end();
 }
 
@@ -204,7 +216,7 @@ bool Pong::checkCollision(PongPlayer player)
 
 	float rotation = player.rotation;
 	
-	p1= rotatePoint(player.position, rotation, p1);
+	p1 = rotatePoint(player.position, rotation, p1);
 	p2 = rotatePoint(player.position, rotation, p2);
 	p3 = rotatePoint(player.position, rotation, p3);
 	p4 = rotatePoint(player.position, rotation, p4);
