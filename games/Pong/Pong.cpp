@@ -139,12 +139,7 @@ void Pong::update(float elapsedTime)
 		
 		glm::vec2 suckPos = p->position + 50.0f*blib::util::fromAngle(p->rotation);
 		
-	/*	if (blib::linq::any(gameball->coordinates, [p](glm::vec2 t) { return glm::length(t - p->position) < 64; }))
-		{
-			speed += 0.5;
-			rotation -= 1;
-		}*/
-		if (checkCollision(*p))
+		if (checkCollision(*p) && p->score != -1)
 		{
 			//gameball->coordinates[0].x -= 20 * elapsedTime;
 			speed += 0.5;
@@ -172,19 +167,19 @@ void Pong::update(float elapsedTime)
 		speed = 2;
 		rotation = rand();
 	}
-	int wallIndex = 0;
-	for (auto w : walls)
+	for (int i = 0; i < 4; i++)
 	{
-		if (players[wallIndex]->score == -1 || (players.size() < 5 && (wallIndex == 1 || wallIndex == 3)))
+		if (players[i]->score == -1 || (players.size() < 4 && (i == 1 || i == 3)))
 		{
-			if (checkWallCollision(w, (float)M_PI*0.5*rotation*wallIndex))
+			if (checkWallCollision(walls[i], (float)M_PI*i))
 			{
 				speed += 0.5;
 				rotation -= 1;
+				std::printf("iets");
 			}
 		}
 	}
-	if (PlayersDefeated == players.size())
+	if (PlayersDefeated == players.size()-1)
 	{
 		for (auto p : players)
 		{
