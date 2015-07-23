@@ -50,11 +50,32 @@ void Pong::start(Difficulty difficulty)
 
 	for (auto p : players)
 	{
-		p->position = glm::vec2(1920 / 2, 1080 / 2) + 500.0f * blib::util::fromAngle(p->index / (float)players.size() * 2 * (float)M_PI);
-		p->rotation = (float)M_PI / (float)players.size()*2 * turningFactor;
-		glm::vec2 v = glm::vec2(1920 / 2, 1080 / 2) + 550.0f * blib::util::fromAngle(p->index / (float)players.size() * 2 * (float)M_PI);
-		walls.push_back(v);
+		if (players.size() > 4)
+		{
+			p->position = glm::vec2(1920 / 2, 1080 / 2) + 500.0f * blib::util::fromAngle(p->index / (float)players.size() * 2 * (float)M_PI);
+			p->rotation = (float)M_PI / (float)players.size() * 2 * turningFactor;
+			glm::vec2 v = glm::vec2(1920 / 2, 1080 / 2) + 550.0f * blib::util::fromAngle(p->index / (float)players.size() * 2 * (float)M_PI);
+			walls.push_back(v);
+		}
+		if (players.size() < 3)
+		{
+			p->position = glm::vec2(1920 / 2, 1080 / 2) + 500.0f * blib::util::fromAngle(p->index / (float)2 * 2 * (float)M_PI);
+			p->rotation = (float)M_PI / (float)2 * 2 * turningFactor;
+		}
+		else if (players.size() < 5)
+		{
+			p->position = glm::vec2(1920 / 2, 1080 / 2) + 500.0f * blib::util::fromAngle(p->index / (float)4 * 2 * (float)M_PI);
+			p->rotation = (float)M_PI / (float)4 * 2 * turningFactor;
+		}
 		turningFactor++;
+	}
+	if (players.size() < 5)
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			glm::vec2 v = glm::vec2(1920 / 2, 1080 / 2) + 550.0f * blib::util::fromAngle(i / (float)4 * 2 * (float)M_PI);
+			walls.push_back(v);
+		}
 	}
 	//glm::vec2 v(1920/2, 1080/2);
 	//ball.push_back(v);
@@ -64,6 +85,7 @@ void Pong::start(Difficulty difficulty)
 void Pong::update(float elapsedTime)
 {
 	blib::math::Rectangle screenRect(0, 0, 1920, 1080);
+	int PlayersDefeated = 0;
 	for (auto p : players)
 	{
 		if (p->joystick.leftStick.y < 0)
@@ -125,15 +147,12 @@ void Pong::update(float elapsedTime)
 		if (checkCollision(*p))
 		{
 			//gameball->coordinates[0].x -= 20 * elapsedTime;
-			int iets = p->index;
-			char ietsanders = iets;
-			std::printf("" + ietsanders);
 			speed += 0.5;
 			rotation -= 1;
 		}
-		else
+		if (p->score == -1)
 		{
-			gameball->coordinates[0] += speed * 20.0f * blib::util::fromAngle(rotation) * elapsedTime;
+			PlayersDefeated++;
 		}
 	}
 	if (!screenRect.contains(gameball->coordinates[0]))
@@ -153,6 +172,29 @@ void Pong::update(float elapsedTime)
 		speed = 2;
 		rotation = rand();
 	}
+	int wallIndex = 0;
+	for (auto w : walls)
+	{
+		if (players[wallIndex]->score == -1 || (players.size() < 5 && (wallIndex == 1 || wallIndex == 3)))
+		{
+			if (checkWallCollision(w, (float)M_PI*0.5*rotation*wallIndex))
+			{
+				speed += 0.5;
+				rotation -= 1;
+			}
+		}
+	}
+	if (PlayersDefeated == players.size())
+	{
+		for (auto p : players)
+		{
+			if (p->score == 0)
+			{
+				p->score = 1;
+			}
+		}
+	}
+	gameball->coordinates[0] += speed * 80.0f * blib::util::fromAngle(rotation) * elapsedTime;
 }
 
 
@@ -173,6 +215,14 @@ void Pong::draw()
 		{
 			spriteBatch->draw(playerSprite, glm::rotate(glm::translate(glm::mat4(), glm::vec3(p->position, 0)), glm::degrees(p->rotation), glm::vec3(0, 0, 1)), playerSprite->center, blib::math::Rectangle(0, 0, 1, 1), p->participant->color);
 		}
+	}
+	if (players.size() < 3)
+	{
+		spriteBatch->draw(wallSprite, glm::rotate(glm::translate(glm::mat4(), glm::vec3(walls[1], 0)), glm::degrees((float)M_PI/2), glm::vec3(0, 0, 1)), wallSprite->center, blib::math::Rectangle(0, 0, 1, 1), players[0]->participant->color);
+	}
+	if (players.size() < 4)
+	{
+		spriteBatch->draw(wallSprite, glm::rotate(glm::translate(glm::mat4(), glm::vec3(walls[3], 0)), glm::degrees((float)M_PI/2), glm::vec3(0, 0, 1)), wallSprite->center, blib::math::Rectangle(0, 0, 1, 1), players[1]->participant->color);
 	}
 	spriteBatch->end();
 }
@@ -307,6 +357,95 @@ bool Pong::checkCollision(PongPlayer player)
 			}
 		}
 		return false;
+}
+
+bool Pong::checkWallCollision(glm::vec2 position, float rotation)
+{
+
+	glm::vec2 p1 = glm::vec2(position.x - 50, position.y - 960);
+	glm::vec2 p4 = glm::vec2(position.x + 50, position.y - 960);
+	glm::vec2 p3 = glm::vec2(position.x + 50, position.y + 960);
+	glm::vec2 p2 = glm::vec2(position.x - 50, position.y + 960);
+
+	p1 = rotatePoint(position, rotation, p1);
+	p2 = rotatePoint(position, rotation, p2);
+	p3 = rotatePoint(position, rotation, p3);
+	p4 = rotatePoint(position, rotation, p4);
+
+	//ball radius 25
+
+	for (int c = 0; c < 2; c++)
+	{
+		if (c == 1){ p1 = p3; p2 = p4; }
+		int temp = 0;
+		if (abs(p1.x - p2.x) > abs(p1.y - p2.y))
+		{
+			if ((p2.x - p1.x) > 0)
+			{
+				float xTotal = (p1.x - p2.x);
+				int yToX = 0;
+				if ((p1.y - p2.y) != 0){ yToX = xTotal / (p1.y - p2.y); }
+				int translation = p1.y - (p1.x *yToX);
+				for (int i = p1.x; i < p2.x; i++)
+				{
+					temp = i*yToX + translation;
+					if (calculateDistance(glm::vec2(i, temp), gameball->coordinates[0]) <= gameball->Radius)
+					{
+						return true;
+					}
+				}
+			}
+			else
+			{
+				float xTotal = (p2.x - p1.x);
+				int yToX = 0;
+				if ((p2.y - p1.y) != 0){ yToX = xTotal / (p2.y - p1.y); }
+				int translation = p2.y - (p2.x *yToX);
+				for (int i = p2.x; i < p1.x; i++)
+				{
+					temp = i*yToX + translation;
+					if (calculateDistance(glm::vec2(i, temp), gameball->coordinates[0]) <= gameball->Radius)
+					{
+						return true;
+					}
+				}
+			}
+		}
+		else
+		{
+			if ((p2.y - p1.y) > 0)
+			{
+				float yTotal = (p1.y - p2.y);
+				int xToY = 0;
+				if ((p1.x - p2.x) != 0){ xToY = yTotal / (p1.x - p2.x); }
+				int translation = p1.x - (p1.y *xToY);
+				for (int i = p1.y; i < p2.y; i++)
+				{
+					temp = i*xToY + translation;
+					if (calculateDistance(glm::vec2(temp, i), gameball->coordinates[0]) <= gameball->Radius)
+					{
+						return true;
+					}
+				}
+			}
+			else
+			{
+				float yTotal = (p1.y - p2.y);
+				int xToY = 0;
+				if ((p2.x - p1.x) != 0){ xToY = yTotal / (p2.x - p1.x); }
+				int translation = p2.x - (p2.y *xToY);
+				for (int i = p2.y; i < p1.y; i++)
+				{
+					temp = i*xToY + translation;
+					if (calculateDistance(glm::vec2(temp, i), gameball->coordinates[0]) <= gameball->Radius)
+					{
+						return true;
+					}
+				}
+			}
+		}
+	}
+	return false;
 }
 		
 
