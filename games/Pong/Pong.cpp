@@ -167,21 +167,34 @@ void Pong::update(float elapsedTime)
 	{
 		if (players[i]->score == -1)
 		{
-			if (false)
+			if (i == 0 && gameball->coordinates[0].x > 1500)
 			{
 				speed += 0.5;
 				rotation -= 1;
-				std::printf("collisiondetected");
+			}
+			if (i == 1 && gameball->coordinates[0].y > 1005)
+			{
+				speed += 0.5;
+				rotation -= 1;
+			}
+			if (i == 2 && gameball->coordinates[0].x < 495)
+			{
+				speed += 0.5;
+				rotation -= 1;
+			}
+			if (i == 3 && gameball->coordinates[0].y < 75)
+			{
+				speed += 0.5;
+				rotation -= 1;
 			}
 		}
 	}
 	if (players.size() < 4)
 	{
-		if (false)
+		if (gameball->coordinates[0].y < 75)
 		{
 			speed += 0.5;
 			rotation -= 1;
-			std::printf("collisiondetected");
 		}
 	}
 	if (players.size() < 3)
@@ -190,13 +203,11 @@ void Pong::update(float elapsedTime)
 		{
 			speed += 0.5;
 			rotation -= 1;
-			std::printf("collisiondetected1");
 		}
 		if (gameball->coordinates[0].y > 1005)
 		{
 			speed += 0.5;
 			rotation -= 1;
-			std::printf("collisiondetected3");
 		}
 	}
 	if (PlayersDefeated == players.size()-1)
