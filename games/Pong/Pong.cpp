@@ -222,7 +222,7 @@ void Pong::update(float elapsedTime)
 	}
 	if (players.size() < 5)
 	{
-		if (gameball->coordinates[0].x + gameball->Radius > screenRect.width)
+		if (gameball->coordinates[0].x + gameball->Radius > screenRect.width())
 		{
 
 		}
@@ -234,7 +234,7 @@ void Pong::update(float elapsedTime)
 		{
 
 		}
-		else if (gameball->coordinates[0].y + gameball->Radius > screenRect.height)
+		else if (gameball->coordinates[0].y + gameball->Radius > screenRect.height())
 		{
 
 		}
