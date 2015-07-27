@@ -220,6 +220,25 @@ void Pong::update(float elapsedTime)
 			}
 		}
 	}
+	if (players.size() < 5)
+	{
+		if (gameball->coordinates[0].x + gameball->Radius > screenRect.width)
+		{
+
+		}
+		else if (gameball->coordinates[0].x - gameball->Radius < 0)
+		{
+
+		}
+		else if (gameball->coordinates[0].y - gameball->Radius < 0)
+		{
+
+		}
+		else if (gameball->coordinates[0].y + gameball->Radius > screenRect.height)
+		{
+
+		}
+	}
 	gameball->coordinates[0] += speed * 80.0f * blib::util::fromAngle(rotation) * elapsedTime;
 }
 
