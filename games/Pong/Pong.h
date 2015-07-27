@@ -44,7 +44,6 @@ public:
 	bool checkCollision(PongPlayer player);
 	float calculateAngle(glm::vec2 vector1, glm::vec2 vector2, glm::vec2 vector0);
 	glm::vec2 rotatePoint(glm::vec2 rotatePoint, float angle, glm::vec2 point);
-	bool checkWallCollision(glm::vec2 position, float rotation);
 	
 
 
