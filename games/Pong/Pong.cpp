@@ -44,6 +44,7 @@ void Pong::start(Difficulty difficulty)
 	speed = 2;
 	turningFactor = 0;
 	rotation = rand();
+	walls.clear();
 
 	maxPlayerScore = 1;
 
