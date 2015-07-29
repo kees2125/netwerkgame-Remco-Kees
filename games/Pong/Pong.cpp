@@ -44,7 +44,7 @@ void Pong::start(Difficulty difficulty)
 	speed = 2;
 	turningFactor = 0;
 	rotation = rand();
-	walls.clear();
+	walls.clear();	
 
 	maxPlayerScore = 1;
 
@@ -85,10 +85,10 @@ void Pong::update(float elapsedTime)
 	int PlayersDefeated = 0;
 	for (auto p : players)
 	{
-		if (p->joystick.leftStick.y < 0)
+		if (p->joystick.leftStick.y < 0 && ((players.size() < 3) || players.size() < 5 && (p->index == 0 || p->index == 2)))
 		{
 			glm::vec2 oldPosition = p->position;
-			p->position += 10.0f * blib::util::fromAngle(300) * 60.0f*elapsedTime;
+			p->position -= 10.0f * blib::util::fromAngle(M_PI*0.5) * 60.0f*elapsedTime;
 			bool collision = false;
 			for (auto pp : players)
 			{
@@ -109,10 +109,58 @@ void Pong::update(float elapsedTime)
 				p->rotation += (float)M_PI;
 			}
 		}
-		if (p->joystick.leftStick.y > 0)
+		if (p->joystick.leftStick.y > 0 && ((players.size() < 3) || players.size() < 5 && (p->index == 0 || p->index == 2)))
 		{
 			glm::vec2 oldPosition = p->position;
-			p->position += 10.0f * blib::util::fromAngle(900) * 60.0f*elapsedTime;
+			p->position += 10.0f * blib::util::fromAngle(M_PI*0.5) * 60.0f*elapsedTime;
+			bool collision = false;
+			for (auto pp : players)
+			{
+				if (p == pp)
+					continue;
+				if (glm::length(pp->position - p->position) < 100)
+				{
+					collision = true;
+					pp->rotation += (float)M_PI;
+				}
+			}
+			if (!screenRect.contains(p->position))
+				collision = true;
+
+			if (collision)
+			{
+				p->position = oldPosition;
+				p->rotation += (float)M_PI;
+			}
+		}
+		if (p->joystick.leftStick.x < 0 && (players.size() < 5 && (p->index == 1 || p->index == 3)))
+		{
+			glm::vec2 oldPosition = p->position;
+			p->position -= 10.0f * blib::util::fromAngle(0) * 60.0f*elapsedTime;
+			bool collision = false;
+			for (auto pp : players)
+			{
+				if (p == pp)
+					continue;
+				if (glm::length(pp->position - p->position) < 100)
+				{
+					collision = true;
+					pp->rotation += (float)M_PI;
+				}
+			}
+			if (!screenRect.contains(p->position))
+				collision = true;
+
+			if (collision)
+			{
+				p->position = oldPosition;
+				p->rotation += (float)M_PI;
+			}
+		}
+		if (p->joystick.leftStick.x > 0 && (players.size() < 5 && (p->index == 1 || p->index == 3)))
+		{
+			glm::vec2 oldPosition = p->position;
+			p->position += 10.0f * blib::util::fromAngle(0) * 60.0f*elapsedTime;
 			bool collision = false;
 			for (auto pp : players)
 			{
