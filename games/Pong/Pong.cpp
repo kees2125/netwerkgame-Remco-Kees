@@ -41,7 +41,7 @@ void Pong::loadResources()
 void Pong::start(Difficulty difficulty)
 {
 	positive = false;
-	speed = 2;
+	speed = 4;
 	turningFactor = 0;
 	rotation = rand();
 	walls.clear();	
@@ -187,8 +187,9 @@ void Pong::update(float elapsedTime)
 		if (checkCollision(*p) && p->score != -1)
 		{
 			//gameball->coordinates[0].x -= 20 * elapsedTime;
-			speed += 0.5;
-			rotation -= 1;
+			speed += 1;
+			float rotationdiff = (p->rotation + 0.5*M_PI) - rotation;
+			rotation += 2 * rotationdiff;
 		}
 		if (p->score == -1)
 		{
@@ -209,32 +210,36 @@ void Pong::update(float elapsedTime)
 		}
 		players[playerindex]->score = -1;
 		gameball->coordinates[0] = glm::vec2(1920 / 2, 1080 / 2);
-		speed = 2;
+		speed = 4;
 		rotation = rand();
 	}
 	for (int i = 0; i < players.size(); i++)
 	{
 		if (players[i]->score == -1)
 		{
-			if (i == 0 && gameball->coordinates[0].x > 1500)
+			if (i == 0 && gameball->coordinates[0].x > 1450)
 			{
 				speed += 0.5;
-				rotation -= 1;
+				float rotationdiff = (players[i]->rotation + 0.5*M_PI) - rotation;
+				rotation += 2 * rotationdiff;
 			}
 			if (i == 1 && gameball->coordinates[0].y > 1005)
 			{
 				speed += 0.5;
-				rotation -= 1;
+				float rotationdiff = (players[i]->rotation + 0.5*M_PI) - rotation;
+				rotation += 2 * rotationdiff;
 			}
 			if (i == 2 && gameball->coordinates[0].x < 495)
 			{
 				speed += 0.5;
-				rotation -= 1;
+				float rotationdiff = (players[i]->rotation + 0.5*M_PI) - rotation;
+				rotation += 2 * rotationdiff;
 			}
 			if (i == 3 && gameball->coordinates[0].y < 75)
 			{
 				speed += 0.5;
-				rotation -= 1;
+				float rotationdiff = (players[i]->rotation + 0.5*M_PI) - rotation;
+				rotation += 2 * rotationdiff;
 			}
 		}
 	}
@@ -243,7 +248,8 @@ void Pong::update(float elapsedTime)
 		if (gameball->coordinates[0].y < 75)
 		{
 			speed += 0.5;
-			rotation -= 1;
+			float rotationdiff = (M_PI) - rotation;
+			rotation += 2 * rotationdiff;
 		}
 	}
 	if (players.size() < 3)
@@ -251,12 +257,14 @@ void Pong::update(float elapsedTime)
 		if (gameball->coordinates[0].y < 75)
 		{
 			speed += 0.5;
-			rotation -= 1;
+			float rotationdiff = (M_PI) - rotation;
+			rotation += 2 * rotationdiff;
 		}
 		if (gameball->coordinates[0].y > 1005)
 		{
 			speed += 0.5;
-			rotation -= 1;
+			float rotationdiff = (M_PI) - rotation;
+			rotation += 2 * rotationdiff;
 		}
 	}
 	if (PlayersDefeated == players.size()-1)
