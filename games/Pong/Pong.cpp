@@ -53,9 +53,7 @@ void Pong::start(Difficulty difficulty)
 		if (players.size() > 4)
 		{
 			p->position = glm::vec2(1920 / 2, 1080 / 2) + 500.0f * blib::util::fromAngle(p->index / (float)players.size() * 2 * (float)M_PI);
-			p->rotation = (float)M_PI / (float)players.size() * 2 * turningFactor;
-			glm::vec2 v = glm::vec2(1920 / 2, 1080 / 2) + 540.0f * blib::util::fromAngle(p->index / (float)players.size() * 2 * (float)M_PI);
-			walls.push_back(v);
+			p->rotation = (float)M_PI / (float)players.size() * 2 * p->index;
 		}
 		if (players.size() < 3)
 		{
@@ -68,13 +66,10 @@ void Pong::start(Difficulty difficulty)
 			p->rotation = (float)M_PI / (float)4 * 2 * p->index;
 		}
 	}
-	if (players.size() < 5)
+	for (int i = 0; i < 4; i++)
 	{
-		for (int i = 0; i < 4; i++)
-		{
-			glm::vec2 v = glm::vec2(1920 / 2, 1080 / 2) + 540.0f * blib::util::fromAngle(i / (float)4 * 2 * (float)M_PI);
-			walls.push_back(v);
-		}
+		glm::vec2 v = glm::vec2(1920 / 2, 1080 / 2) + 540.0f * blib::util::fromAngle(i / (float)4 * 2 * (float)M_PI);
+		walls.push_back(v);
 	}
 	gameball = new Pong::ball(1920 / 2, 1080 / 2, 25);
 }
@@ -248,7 +243,7 @@ void Pong::update(float elapsedTime)
 		if (gameball->coordinates[0].y < 75)
 		{
 			speed += 0.5;
-			float rotationdiff = (M_PI) - rotation;
+			float rotationdiff = 0.5;	// moet nog gefixt worden
 			rotation += 2 * rotationdiff;
 		}
 	}
@@ -257,13 +252,14 @@ void Pong::update(float elapsedTime)
 		if (gameball->coordinates[0].y < 75)
 		{
 			speed += 0.5;
-			float rotationdiff = (M_PI) - rotation;
+			float rotationdiff = 0.5; // moet nog gefixt worden
 			rotation += 2 * rotationdiff;
+			rotation+= 0;
 		}
 		if (gameball->coordinates[0].y > 1005)
 		{
 			speed += 0.5;
-			float rotationdiff = (M_PI) - rotation;
+			float rotationdiff = (0) - rotation;
 			rotation += 2 * rotationdiff;
 		}
 	}
@@ -275,25 +271,6 @@ void Pong::update(float elapsedTime)
 			{
 				p->score = 1;
 			}
-		}
-	}
-	if (players.size() < 5)
-	{
-		if (gameball->coordinates[0].x + gameball->Radius > screenRect.width())
-		{
-
-		}
-		else if (gameball->coordinates[0].x - gameball->Radius < 0)
-		{
-
-		}
-		else if (gameball->coordinates[0].y - gameball->Radius < 0)
-		{
-
-		}
-		else if (gameball->coordinates[0].y + gameball->Radius > screenRect.height())
-		{
-
 		}
 	}
 	gameball->coordinates[0] += speed * 80.0f * blib::util::fromAngle(rotation) * elapsedTime;
@@ -309,7 +286,7 @@ void Pong::draw()
 
 	for (auto p : players)
 	{
-		if (p->score < 0)
+		if (p->score < 0 && p-> index < 4)
 		{
 			spriteBatch->draw(wallSprite, glm::rotate(glm::translate(glm::mat4(), glm::vec3(walls[p->index], 0)), glm::degrees(p->rotation), glm::vec3(0, 0, 1)), wallSprite->center, blib::math::Rectangle(0, 0, 1, 1), p->participant->color);
 		}
