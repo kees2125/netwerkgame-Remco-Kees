@@ -52,8 +52,16 @@ void Pong::start(Difficulty difficulty)
 	{
 		if (players.size() > 4)
 		{
-			p->position = glm::vec2(1920 / 2, 1080 / 2) + 500.0f * blib::util::fromAngle(p->index / (float)players.size() * 2 * (float)M_PI);
-			p->rotation = (float)M_PI / (float)players.size() * 2 * p->index;
+			if (p->index < 4)
+			{
+				p->position = glm::vec2(960, 540) + 620.0f * blib::util::fromAngle(p->index / (float)4 * 2 * (float)M_PI - (float)0.18*M_PI);
+				p->rotation = (float)M_PI / (float)4 * 2 * p->index;
+			}
+			else
+			{
+				p->position = glm::vec2(960, 540) + 620.0f * blib::util::fromAngle(p->index / (float)4 * 2 * (float)M_PI + (float)0.18*M_PI);
+				p->rotation = (float)M_PI / (float)4 * 2 * p->index;
+			}
 		}
 		if (players.size() < 3)
 		{
@@ -80,7 +88,7 @@ void Pong::update(float elapsedTime)
 	int PlayersDefeated = 0;
 	for (auto p : players)
 	{
-		if (p->joystick.leftStick.y < 0 && ((players.size() < 3) || players.size() < 5 && (p->index == 0 || p->index == 2)))
+		if (p->joystick.leftStick.y < 0 && ((players.size() < 3) || (players.size() < 9 && p->index % 2 == 0)))
 		{
 			glm::vec2 oldPosition = p->position;
 			p->position -= 10.0f * blib::util::fromAngle(M_PI*0.5) * 60.0f*elapsedTime;
@@ -104,7 +112,8 @@ void Pong::update(float elapsedTime)
 				p->rotation += (float)M_PI;
 			}
 		}
-		if (p->joystick.leftStick.y > 0 && ((players.size() < 3) || players.size() < 5 && (p->index == 0 || p->index == 2)))
+		int fart = p->index % 2;
+		if (p->joystick.leftStick.y > 0 && ((players.size() < 3) || (players.size() < 9 && (p->index % 2 == 0))))
 		{
 			glm::vec2 oldPosition = p->position;
 			p->position += 10.0f * blib::util::fromAngle(M_PI*0.5) * 60.0f*elapsedTime;
@@ -128,7 +137,7 @@ void Pong::update(float elapsedTime)
 				p->rotation += (float)M_PI;
 			}
 		}
-		if (p->joystick.leftStick.x < 0 && (players.size() < 5 && (p->index == 1 || p->index == 3)))
+		if (p->joystick.leftStick.x < 0 && (players.size() < 9 && p->index % 2 == 1))
 		{
 			glm::vec2 oldPosition = p->position;
 			p->position -= 10.0f * blib::util::fromAngle(0) * 60.0f*elapsedTime;
@@ -152,7 +161,7 @@ void Pong::update(float elapsedTime)
 				p->rotation += (float)M_PI;
 			}
 		}
-		if (p->joystick.leftStick.x > 0 && (players.size() < 5 && (p->index == 1 || p->index == 3)))
+		if (p->joystick.leftStick.x > 0 && (players.size() < 9 && p-> index % 2 == 1))
 		{
 			glm::vec2 oldPosition = p->position;
 			p->position += 10.0f * blib::util::fromAngle(0) * 60.0f*elapsedTime;
@@ -204,15 +213,16 @@ void Pong::update(float elapsedTime)
 			}
 		}
 		players[playerindex]->score = -1;
+		players[playerindex]->position = glm::vec2(-1000, -1000);
 		gameball->coordinates[0] = glm::vec2(1920 / 2, 1080 / 2);
 		speed = 4;
 		rotation = rand();
 	}
 	for (int i = 0; i < players.size(); i++)
 	{
-		if (players[i]->score == -1)
+		if ((players[i]->score < 0 && i < 4 && players.size() < 5) || (players[i]->score < 0 && (i - 4 < 0) && players.size() > 4))
 		{
-			if (i == 0 && gameball->coordinates[0].x > 1450)
+			if (i == 0 && gameball->coordinates[0].x > 1420)
 			{
 				speed += 0.5;
 				float rotationdiff = (players[i]->rotation + 0.5*M_PI) - rotation;
@@ -235,6 +245,36 @@ void Pong::update(float elapsedTime)
 				speed += 0.5;
 				float rotationdiff = (players[i]->rotation + 0.5*M_PI) - rotation;
 				rotation += 2 * rotationdiff;
+			}
+		}
+		if (players[i]->score < 0 && i > 4)
+		{
+			if (players[i - 4]->score < 0)
+			{
+				if (i == 4 && gameball->coordinates[0].x > 1450)
+				{
+					speed += 0.5;
+					float rotationdiff = (players[i]->rotation + 0.5*M_PI) - rotation;
+					rotation += 2 * rotationdiff;
+				}
+				if (i == 5 && gameball->coordinates[0].y > 1005)
+				{
+					speed += 0.5;
+					float rotationdiff = (players[i]->rotation + 0.5*M_PI) - rotation;
+					rotation += 2 * rotationdiff;
+				}
+				if (i == 6 && gameball->coordinates[0].x < 495)
+				{
+					speed += 0.5;
+					float rotationdiff = (players[i]->rotation + 0.5*M_PI) - rotation;
+					rotation += 2 * rotationdiff;
+				}
+				if (i == 7 && gameball->coordinates[0].y < 75)
+				{
+					speed += 0.5;
+					float rotationdiff = (players[i]->rotation + 0.5*M_PI) - rotation;
+					rotation += 2 * rotationdiff;
+				}
 			}
 		}
 	}
@@ -286,11 +326,18 @@ void Pong::draw()
 
 	for (auto p : players)
 	{
-		if (p->score < 0 && p-> index < 4)
+		if ((p->score < 0 && p->index < 4 && players.size() < 5) || (p->score < 0 && (p->index - 4 < 0) && players.size() > 4))
 		{
 			spriteBatch->draw(wallSprite, glm::rotate(glm::translate(glm::mat4(), glm::vec3(walls[p->index], 0)), glm::degrees(p->rotation), glm::vec3(0, 0, 1)), wallSprite->center, blib::math::Rectangle(0, 0, 1, 1), p->participant->color);
 		}
-		else
+		if (p->score < 0 && p->index > 4)
+		{
+			if (players[p->index - 4]->score < 0)
+			{
+				spriteBatch->draw(wallSprite, glm::rotate(glm::translate(glm::mat4(), glm::vec3(walls[p->index-4], 0)), glm::degrees(p->rotation), glm::vec3(0, 0, 1)), wallSprite->center, blib::math::Rectangle(0, 0, 1, 1), players[p->index-4]->participant->color);
+			}
+		}
+		else if (p-> score == 0)
 		{
 			spriteBatch->draw(playerSprite, glm::rotate(glm::translate(glm::mat4(), glm::vec3(p->position, 0)), glm::degrees(p->rotation), glm::vec3(0, 0, 1)), playerSprite->center, blib::math::Rectangle(0, 0, 1, 1), p->participant->color);
 		}
