@@ -112,7 +112,6 @@ void Pong::update(float elapsedTime)
 				p->rotation += (float)M_PI;
 			}
 		}
-		int fart = p->index % 2;
 		if (p->joystick.leftStick.y > 0 && ((players.size() < 3) || (players.size() < 9 && (p->index % 2 == 0))))
 		{
 			glm::vec2 oldPosition = p->position;
@@ -190,7 +189,6 @@ void Pong::update(float elapsedTime)
 		
 		if (checkCollision(*p) && p->score != -1)
 		{
-			//gameball->coordinates[0].x -= 20 * elapsedTime;
 			speed += 1;
 			float rotationdiff = (p->rotation + 0.5*M_PI) - rotation;
 			rotation += 2 * rotationdiff;
@@ -220,57 +218,65 @@ void Pong::update(float elapsedTime)
 	}
 	for (int i = 0; i < players.size(); i++)
 	{
-		if ((players[i]->score < 0 && i < 4 && players.size() < 5) || (players[i]->score < 0 && (i - 4 < 0) && players.size() > 4))
+		if ((players[i]->score < 0 && i < 4 && players.size() < 5) || (players.size() > 4 && i + 4 >= players.size() && players[i]->score < 0 && i < 4))
 		{
 			if (i == 0 && gameball->coordinates[0].x > 1420)
 			{
+				printf("something");
 				speed += 0.5;
 				float rotationdiff = (players[i]->rotation + 0.5*M_PI) - rotation;
 				rotation += 2 * rotationdiff;
 			}
 			if (i == 1 && gameball->coordinates[0].y > 1005)
 			{
+				printf("something");
 				speed += 0.5;
 				float rotationdiff = (players[i]->rotation + 0.5*M_PI) - rotation;
 				rotation += 2 * rotationdiff;
 			}
 			if (i == 2 && gameball->coordinates[0].x < 495)
 			{
+				printf("something");
 				speed += 0.5;
 				float rotationdiff = (players[i]->rotation + 0.5*M_PI) - rotation;
 				rotation += 2 * rotationdiff;
 			}
 			if (i == 3 && gameball->coordinates[0].y < 75)
 			{
+				printf("something");
 				speed += 0.5;
 				float rotationdiff = (players[i]->rotation + 0.5*M_PI) - rotation;
 				rotation += 2 * rotationdiff;
 			}
 		}
-		if (players[i]->score < 0 && i > 4)
+		if (players[i]->score < 0 && i > 3)
 		{
 			if (players[i - 4]->score < 0)
 			{
-				if (i == 4 && gameball->coordinates[0].x > 1450)
+				if (i == 4 && gameball->coordinates[0].x > 1420)
 				{
+					printf("something");
 					speed += 0.5;
 					float rotationdiff = (players[i]->rotation + 0.5*M_PI) - rotation;
 					rotation += 2 * rotationdiff;
 				}
 				if (i == 5 && gameball->coordinates[0].y > 1005)
 				{
+					printf("something");
 					speed += 0.5;
 					float rotationdiff = (players[i]->rotation + 0.5*M_PI) - rotation;
 					rotation += 2 * rotationdiff;
 				}
 				if (i == 6 && gameball->coordinates[0].x < 495)
 				{
+					printf("something");
 					speed += 0.5;
 					float rotationdiff = (players[i]->rotation + 0.5*M_PI) - rotation;
 					rotation += 2 * rotationdiff;
 				}
 				if (i == 7 && gameball->coordinates[0].y < 75)
 				{
+					printf("something");
 					speed += 0.5;
 					float rotationdiff = (players[i]->rotation + 0.5*M_PI) - rotation;
 					rotation += 2 * rotationdiff;
@@ -326,11 +332,11 @@ void Pong::draw()
 
 	for (auto p : players)
 	{
-		if ((p->score < 0 && p->index < 4 && players.size() < 5) || (p->score < 0 && (p->index - 4 < 0) && players.size() > 4))
+		if ((p->score < 0 && p->index < 4 && players.size() < 5) || (players.size() > 4 && p->index + 4 >= players.size() && p->score < 0 && p->index < 4))
 		{
 			spriteBatch->draw(wallSprite, glm::rotate(glm::translate(glm::mat4(), glm::vec3(walls[p->index], 0)), glm::degrees(p->rotation), glm::vec3(0, 0, 1)), wallSprite->center, blib::math::Rectangle(0, 0, 1, 1), p->participant->color);
 		}
-		if (p->score < 0 && p->index > 4)
+		if (p->score < 0 && p->index > 3)
 		{
 			if (players[p->index - 4]->score < 0)
 			{
