@@ -284,28 +284,28 @@ void Pong::update(float elapsedTime)
 			}
 		}
 	}
-	if (players.size() < 4)
-	{
-		if (gameball->coordinates[0].y < 75)
-		{
-			speed += 0.5;
-			float rotationdiff = 0.5;	// moet nog gefixt worden
-			rotation += 2 * rotationdiff;
-		}
-	}
 	if (players.size() < 3)
 	{
 		if (gameball->coordinates[0].y < 75)
 		{
 			speed += 0.5;
-			float rotationdiff = 0.5; // moet nog gefixt worden
+			double rotationdiff = (0) - rotation;; // moet nog gefixt worden
 			rotation += 2 * rotationdiff;
-			rotation+= 0;
+
 		}
 		if (gameball->coordinates[0].y > 1005)
 		{
 			speed += 0.5;
-			float rotationdiff = (0) - rotation;
+			double rotationdiff = (0) - rotation;
+			rotation += 2 * rotationdiff;
+		}
+	}
+	else if (players.size() < 4)
+	{
+		if (gameball->coordinates[0].y < 75)
+		{
+			speed += 0.5;
+			float rotationdiff = (0) - rotation; // moet nog gefixt worden
 			rotation += 2 * rotationdiff;
 		}
 	}
