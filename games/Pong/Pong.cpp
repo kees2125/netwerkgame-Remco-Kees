@@ -185,8 +185,6 @@ void Pong::update(float elapsedTime)
 			}
 		}
 		
-		glm::vec2 suckPos = p->position + 50.0f*blib::util::fromAngle(p->rotation);
-		
 		if (checkCollision(*p) && p->score != -1)
 		{
 			speed += 1;
@@ -402,7 +400,6 @@ glm::vec2 Pong::rotatePoint(glm::vec2 rotatePoint, float angle, glm::vec2 point)
 
 bool Pong::checkCollision(PongPlayer player)
 {
-
 	glm::vec2 p1 = glm::vec2(player.position.x-25,player.position.y-100);
 	glm::vec2 p4 = glm::vec2(player.position.x + 25, player.position.y - 100);
 	glm::vec2 p3 = glm::vec2(player.position.x + 25, player.position.y + 100);
