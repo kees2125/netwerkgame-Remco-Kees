@@ -414,9 +414,8 @@ bool Pong::checkCollision(PongPlayer player)
 
 	//ball radius 25
 	
-		for (int c = 0; c < 2; c++)
-		{
-			if (c == 1){ p1 = p3; p2 = p4; }
+		
+			if (calculateDistance(p1,gameball->coordinates[0])> calculateDistance(p3,gameball->coordinates[0])){ p1 = p3; p2 = p4; }
 			int temp = 0;
 			if (abs(p1.x - p2.x) > abs(p1.y - p2.y))
 			{
@@ -484,7 +483,7 @@ bool Pong::checkCollision(PongPlayer player)
 					}
 				}
 			}
-		}
+		
 		return false;
 }
 		
